@@ -10,10 +10,10 @@ int main() {
      setlocale(LC_ALL, "Russian");
 
 
-     cout << "Вектор: numbers1.erase(iter + 2): " << endl;
+     cout << "Р’РµРєС‚РѕСЂ: numbers1.erase(iter + 2): " << endl;
      vector <int> numbers1 {1, 2, 3, 4, 5, 6};
-     auto iter = numbers1.cbegin(); // указатель на первый элемент
-     numbers1.erase(iter + 2); // удаляем третий элемент
+     auto iter = numbers1.cbegin(); // СѓРєР°Р·Р°С‚РµР»СЊ РЅР° РїРµСЂРІС‹Р№ СЌР»РµРјРµРЅС‚
+     numbers1.erase(iter + 2); // СѓРґР°Р»СЏРµРј С‚СЂРµС‚РёР№ СЌР»РµРјРµРЅС‚
      for(int i = 0; i < numbers1.size(); ++i) {
         cout << numbers1[i] << " ";
      }
@@ -22,11 +22,11 @@ int main() {
 
 
 
-     cout << "Вектор: numbers2.erase(iter_begin + 3, iter_end - 1): " << endl;
+     cout << "Р’РµРєС‚РѕСЂ: numbers2.erase(iter_begin + 3, iter_end - 1): " << endl;
      vector <int> numbers2 {1, 2, 3, 4, 5, 6};
-     auto iter_begin = numbers2.cbegin(); // указатель на первый элемент
-     auto iter_end = numbers2.cend(); // указатель на последний элемент
-     numbers2.erase(iter_begin + 2, iter_end - 1); // удаляем с третьего элемента до последнего
+     auto iter_begin = numbers2.cbegin(); // СѓРєР°Р·Р°С‚РµР»СЊ РЅР° РїРµСЂРІС‹Р№ СЌР»РµРјРµРЅС‚
+     auto iter_end = numbers2.cend(); // СѓРєР°Р·Р°С‚РµР»СЊ РЅР° РїРѕСЃР»РµРґРЅРёР№ СЌР»РµРјРµРЅС‚
+     numbers2.erase(iter_begin + 2, iter_end - 1); // СѓРґР°Р»СЏРµРј СЃ С‚СЂРµС‚СЊРµРіРѕ СЌР»РµРјРµРЅС‚Р° РґРѕ РїРѕСЃР»РµРґРЅРµРіРѕ
      for(int i = 0; i < numbers2.size(); ++i) {
         cout << numbers2[i] << " ";
      }
