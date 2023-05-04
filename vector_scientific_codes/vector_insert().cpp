@@ -9,31 +9,31 @@ int main() {
      cin.tie();
      setlocale(LC_ALL, "Russian");
 
-     cout << "Вектор: numbers1.insert(iter1 + 2, 8): " << endl;
+     cout << "Р’РµРєС‚РѕСЂ: numbers1.insert(iter1 + 2, 8): " << endl;
      vector <int> numbers1 = {1, 2, 3, 4, 5};
-     auto iter1 = numbers1.cbegin(); // константный итератор указывает на первый элемент
-     numbers1.insert(iter1 + 2, 8); // добавляем после второго элемента
+     auto iter1 = numbers1.cbegin(); // РєРѕРЅСЃС‚Р°РЅС‚РЅС‹Р№ РёС‚РµСЂР°С‚РѕСЂ СѓРєР°Р·С‹РІР°РµС‚ РЅР° РїРµСЂРІС‹Р№ СЌР»РµРјРµРЅС‚
+     numbers1.insert(iter1 + 2, 8); // РґРѕР±Р°РІР»СЏРµРј РїРѕСЃР»Рµ РІС‚РѕСЂРѕРіРѕ СЌР»РµРјРµРЅС‚Р°
      for(int i = 0; i < numbers1.size(); i++) {
         cout << numbers1[i] << " ";
      }
      cout << endl << endl << endl;
 
 
-     cout << "Вектор: numbers2.insert(iter2 + 1, 3, 4): " << endl;
+     cout << "Р’РµРєС‚РѕСЂ: numbers2.insert(iter2 + 1, 3, 4): " << endl;
      vector <int> numbers2 = {1, 2, 3, 4, 5};
-     auto iter2 = numbers2.cbegin(); // константный итератор указывает на первый элемент
-     numbers2.insert(iter2 + 1, 3, 4); // добавляем после первого элемента три четверки
+     auto iter2 = numbers2.cbegin(); // РєРѕРЅСЃС‚Р°РЅС‚РЅС‹Р№ РёС‚РµСЂР°С‚РѕСЂ СѓРєР°Р·С‹РІР°РµС‚ РЅР° РїРµСЂРІС‹Р№ СЌР»РµРјРµРЅС‚
+     numbers2.insert(iter2 + 1, 3, 4); // РґРѕР±Р°РІР»СЏРµРј РїРѕСЃР»Рµ РїРµСЂРІРѕРіРѕ СЌР»РµРјРµРЅС‚Р° С‚СЂРё С‡РµС‚РІРµСЂРєРё
      for(int i = 0; i < numbers2.size(); i++) {
         cout <<  numbers2[i] << " ";
      }
      cout << endl << endl << endl;
 
 
-     cout << "Вектор: numbers3.insert(iter3 + 1, values.begin(), values.begin() + 3):" << endl;
+     cout << "Р’РµРєС‚РѕСЂ: numbers3.insert(iter3 + 1, values.begin(), values.begin() + 3):" << endl;
      vector <int> values = {10, 20, 30, 40, 50};
      vector <int> numbers3 = {1, 2, 3, 4, 5};
-     auto iter3 = numbers3.cbegin(); // константный итератор указывает на первый элемент
-     numbers3.insert(iter3 + 1, values.begin(), values.begin() + 3); // добавляем после первого элемента три первых элемента из вектора values
+     auto iter3 = numbers3.cbegin(); // РєРѕРЅСЃС‚Р°РЅС‚РЅС‹Р№ РёС‚РµСЂР°С‚РѕСЂ СѓРєР°Р·С‹РІР°РµС‚ РЅР° РїРµСЂРІС‹Р№ СЌР»РµРјРµРЅС‚
+     numbers3.insert(iter3 + 1, values.begin(), values.begin() + 3); // РґРѕР±Р°РІР»СЏРµРј РїРѕСЃР»Рµ РїРµСЂРІРѕРіРѕ СЌР»РµРјРµРЅС‚Р° С‚СЂРё РїРµСЂРІС‹С… СЌР»РµРјРµРЅС‚Р° РёР· РІРµРєС‚РѕСЂР° values
      for(int i = 0; i < numbers3.size(); i++) {
         cout << numbers3[i] << " ";
      }
@@ -41,10 +41,10 @@ int main() {
 
 
 
-     cout << "Вектор:  numbers4.insert(iter4, {21, 22, 23}):" << endl;
+     cout << "Р’РµРєС‚РѕСЂ:  numbers4.insert(iter4, {21, 22, 23}):" << endl;
      vector <int> numbers4 = {1, 2, 3, 4, 5};
-     auto iter4 = numbers4.cend(); // константный итератор указывает на позицию за последним элементом
-     numbers4.insert(iter4, {21, 22, 23}); // добавляем в конец вектора numbers4 элементы из списка { 21, 22, 23 }
+     auto iter4 = numbers4.cend(); // РєРѕРЅСЃС‚Р°РЅС‚РЅС‹Р№ РёС‚РµСЂР°С‚РѕСЂ СѓРєР°Р·С‹РІР°РµС‚ РЅР° РїРѕР·РёС†РёСЋ Р·Р° РїРѕСЃР»РµРґРЅРёРј СЌР»РµРјРµРЅС‚РѕРј
+     numbers4.insert(iter4, {21, 22, 23}); // РґРѕР±Р°РІР»СЏРµРј РІ РєРѕРЅРµС† РІРµРєС‚РѕСЂР° numbers4 СЌР»РµРјРµРЅС‚С‹ РёР· СЃРїРёСЃРєР° { 21, 22, 23 }
      for(int i = 0; i < numbers4.size(); i++) {
         cout << numbers4[i] << " ";
     }
