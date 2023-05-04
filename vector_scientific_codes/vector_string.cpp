@@ -10,13 +10,13 @@ int main() {
 
    vector <string> MyVector_string;
 
-   MyVector_string.push_back("груша");
-   MyVector_string.push_back("апельсин");
-   MyVector_string.push_back("яблоко");
-   MyVector_string.push_back("банан");
+   MyVector_string.push_back("РіСЂСѓС€Р°");
+   MyVector_string.push_back("Р°РїРµР»СЊСЃРёРЅ");
+   MyVector_string.push_back("СЏР±Р»РѕРєРѕ");
+   MyVector_string.push_back("Р±Р°РЅР°РЅ");
 
-   cout << "Размер нашего вектора: " << MyVector_string.size() << endl;
-   cout << "Текущее содержание: ";
+   cout << "Р Р°Р·РјРµСЂ РЅР°С€РµРіРѕ РІРµРєС‚РѕСЂР°: " << MyVector_string.size() << endl;
+   cout << "РўРµРєСѓС‰РµРµ СЃРѕРґРµСЂР¶Р°РЅРёРµ: ";
 
    for(int i = 0; i < MyVector_string.size(); i++) {
         cout << MyVector_string[i] << " ";
@@ -26,8 +26,8 @@ int main() {
 
    MyVector_string.pop_back();
 
-   cout << "Размер нашего вектора после pop_back(): " << MyVector_string.size() << endl;
-   cout << "Текущее содержание после pop_back(): ";
+   cout << "Р Р°Р·РјРµСЂ РЅР°С€РµРіРѕ РІРµРєС‚РѕСЂР° РїРѕСЃР»Рµ pop_back(): " << MyVector_string.size() << endl;
+   cout << "РўРµРєСѓС‰РµРµ СЃРѕРґРµСЂР¶Р°РЅРёРµ РїРѕСЃР»Рµ pop_back(): ";
    for(int i = 0; i < MyVector_string.size(); i++) {
         cout << MyVector_string[i] << " ";
    }
@@ -35,25 +35,5 @@ int main() {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
    return 0;
 }
-
-
