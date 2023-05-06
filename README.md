@@ -1,1 +1,0 @@
-# C++ scientific codes repo
