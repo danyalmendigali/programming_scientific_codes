@@ -10,32 +10,32 @@ int main() {
      setlocale(LC_ALL, "Russian");
 
 
-     cout << "Ğ’ĞµĞºÑ‚Ğ¾Ñ€ #1: " << endl;
+     cout << "Âåêòîğ #1: " << endl;
      vector <int> numbers1 {1, 2, 3, 4, 5, 6};
      auto iter1 = numbers1.cbegin();
      numbers1.insert(iter1 + 1, 4);
      if(numbers1.empty()) {
-        cout << "Ğ”Ğ°Ğ½Ğ½Ñ‹Ğ¹ Ğ²ĞµĞºÑ‚Ğ¾Ñ€ Ğ¿ÑƒÑÑ‚! " << endl;
+        cout << "Äàííûé âåêòîğ ïóñò! " << endl;
      }
      else
-        cout << "Ğ”Ğ°Ğ½Ğ½Ñ‹Ğ¹ Ğ²ĞµĞºÑ‚Ğ¾Ñ€ Ğ¸Ğ¼ĞµĞµÑ‚ Ñ‡Ğ¸ÑĞ»Ğ°! " << endl;
+        cout << "Äàííûé âåêòîğ èìååò ÷èñëà! " << endl;
 
-     cout << "Ğ¡ĞµĞ¹Ñ‡Ğ°Ñ Ñ€Ğ°Ğ·Ğ¼ĞµÑ€ Ğ²ĞµĞºÑ‚Ğ¾Ñ€Ğ° = " << numbers1.size() << endl;
-     cout << "Ğ¡Ğ¾Ğ´ĞµÑ€Ğ¶Ğ°Ğ½Ğ¸Ğµ Ğ²ĞµĞºÑ‚Ğ¾Ñ€Ğ°: ";
+     cout << "Ñåé÷àñ ğàçìåğ âåêòîğà = " << numbers1.size() << endl;
+     cout << "Ñîäåğæàíèå âåêòîğà: ";
      for(int i = 0; i < numbers1.size(); i++) {
         cout << numbers1[i] << " ";
      }
      cout << endl << endl << endl;
-     cout << "ĞŸĞ¾ÑĞ»Ğµ numbers1.resize(10, 8): " << endl;
+     cout << "Ïîñëå numbers1.resize(10, 8): " << endl;
      numbers1.resize(10, 8);
-     cout << "Ğ¡ĞµĞ¹Ñ‡Ğ°Ñ Ñ€Ğ°Ğ·Ğ¼ĞµÑ€ Ğ²ĞµĞºÑ‚Ğ¾Ñ€Ğ° = " << numbers1.size() << endl;
-     cout << "Ğ¡Ğ¾Ğ´ĞµÑ€Ğ¶Ğ°Ğ½Ğ¸Ğµ Ğ²ĞµĞºÑ‚Ğ¾Ñ€Ğ°: ";
+     cout << "Ñåé÷àñ ğàçìåğ âåêòîğà = " << numbers1.size() << endl;
+     cout << "Ñîäåğæàíèå âåêòîğà: ";
      for(int i = 0; i < numbers1.size(); i++) {
         cout << numbers1[i] << " ";
      }
      cout << endl;
      numbers1.clear();
-     cout << "Ğ Ğ°Ğ·Ğ¼ĞµÑ€ Ğ¿Ğ¾ÑĞ»Ğµ numbers1.clear(): " << numbers1.size() << endl;
+     cout << "Ğàçìåğ ïîñëå numbers1.clear(): " << numbers1.size() << endl;
      cout << endl << endl << endl;
 
 
@@ -44,40 +44,40 @@ int main() {
 
 
 
-     cout << "Ğ’ĞµĞºÑ‚Ğ¾Ñ€ #2: " << endl;
+     cout << "Âåêòîğ #2: " << endl;
      vector <int> numbers2 = {34, 54, 21, 43, 26};
      auto iter2 = numbers2.cend();
      numbers2.insert(iter2 - 1, {1023, 3543, 5356, 3642});
      if(numbers2.empty()) {
-        cout << "Ğ”Ğ°Ğ½Ğ½Ñ‹Ğ¹ Ğ²ĞµĞºÑ‚Ğ¾Ñ€ Ğ¿ÑƒÑÑ‚! " << endl;
+        cout << "Äàííûé âåêòîğ ïóñò! " << endl;
      }
      else
-        cout << "Ğ”Ğ°Ğ½Ğ½Ñ‹Ğ¹ Ğ²ĞµĞºÑ‚Ğ¾Ñ€ Ğ¸Ğ¼ĞµĞµÑ‚ Ñ‡Ğ¸ÑĞ»Ğ°!" << endl;
+        cout << "Äàííûé âåêòîğ èìååò ÷èñëà!" << endl;
 
-      cout << "Ğ¡ĞµĞ¹Ñ‡Ğ°Ñ Ñ€Ğ°Ğ·Ğ¼ĞµÑ€ Ğ²ĞµĞºÑ‚Ğ¾Ñ€Ğ° = " << numbers2.size() << endl;
-      cout << "Ğ¡Ğ¾Ğ´ĞµÑ€Ğ¶Ğ°Ğ½Ğ¸Ğµ Ğ²ĞµĞºÑ‚Ğ¾Ñ€Ğ°: ";
+      cout << "Ñåé÷àñ ğàçìåğ âåêòîğà = " << numbers2.size() << endl;
+      cout << "Ñîäåğæàíèå âåêòîğà: ";
       for(int i = 0; i < numbers2.size(); i++) {
         cout << numbers2[i] << " ";
       }
       cout << endl << endl << endl;
 
       numbers2.resize(2);
-      cout << "Ğ¡Ğ¾Ğ´ĞµÑ€Ğ¶Ğ°Ğ½Ğ¸Ğµ Ğ¿Ğ¾ÑĞ»Ğµ numbers2.resize(2): ";
+      cout << "Ñîäåğæàíèå ïîñëå numbers2.resize(2): ";
       for(int i = 0; i < numbers2.size(); i++) {
         cout << numbers2[i] << " ";
       }
       cout << endl << endl;
 
-      cout << "Ğ¡Ğ¾Ğ´ĞµÑ€Ğ¶Ğ°Ğ½Ğ¸Ğµ Ğ¿Ğ¾ÑĞ»Ğµ numbers2.resize(5, 8): ";
+      cout << "Ñîäåğæàíèå ïîñëå numbers2.resize(5, 8): ";
       numbers2.resize(5, 8);
-      cout << "Ğ¡ĞµĞ¹Ñ‡Ğ°Ñ Ñ€Ğ°Ğ·Ğ¼ĞµÑ€ Ğ²ĞµĞºÑ‚Ğ¾Ñ€Ğ° = " << numbers2.size() << endl;
-      cout << "Ğ¡Ğ¾Ğ´ĞµÑ€Ğ¶Ğ°Ğ½Ğ¸Ğµ Ğ²ĞµĞºÑ‚Ğ¾Ñ€Ğ°: ";
+      cout << "Ñåé÷àñ ğàçìåğ âåêòîğà = " << numbers2.size() << endl;
+      cout << "Ñîäåğæàíèå âåêòîğà: ";
       for(int i = 0; i < numbers2.size(); i++) {
         cout << numbers2[i] << " ";
       }
       cout << endl;
       numbers2.clear();
-      cout << "Ğ Ğ°Ğ·Ğ¼ĞµÑ€ Ğ¿Ğ¾ÑĞ»Ğµ numbers2.clear(): " << numbers2.size() << endl;
+      cout << "Ğàçìåğ ïîñëå numbers2.clear(): " << numbers2.size() << endl;
       cout << endl << endl << endl;
 
 
@@ -88,20 +88,20 @@ int main() {
 
 
 
-      cout << "Ğ’ĞµĞºÑ‚Ğ¾Ñ€ #3: " << endl;
+      cout << "Âåêòîğ #3: " << endl;
       int g;
-      cout << "Ğ’Ğ²ĞµĞ´Ğ¸Ñ‚Ğµ ĞºĞ¾Ğ»Ğ¸Ñ‡ĞµÑÑ‚Ğ²Ğ¾ Ñ‡Ğ¸ÑĞµĞ» Ğ² Ğ²ĞµĞºÑ‚Ğ¾Ñ€Ğµ: ";
+      cout << "Ââåäèòå êîëè÷åñòâî ÷èñåë â âåêòîğå: ";
       cin >> g;
       vector <int> numbers3 (g);
-      cout << "Ğ’Ğ²ĞµĞ´Ğ¸Ñ‚Ğµ " << g << " Ñ‡Ğ¸ÑĞµĞ»: " << endl;
+      cout << "Ââåäèòå " << g << " ÷èñåë: " << endl;
       for(int i = 0; i < g; i++) {
-        cout << "Ğ’Ğ²ĞµĞ´Ğ¸Ñ‚Ğµ " << i << " Ñ‡Ğ¸ÑĞ»Ğ¾: ";
+        cout << "Ââåäèòå " << i << " ÷èñëî: ";
         cin >> numbers3[i];
       }
       int h, l, k;
       h--;
-      cout << "Ğ•ÑÑ‚ÑŒ Ğ¿Ğ¾ÑĞ»ĞµĞ´Ğ¾Ğ²Ğ°Ñ‚ĞµĞ»ÑŒĞ½Ğ¾ÑÑ‚ÑŒ Ğ¸Ğ· " << numbers3.size() << " Ñ‡Ğ¸ÑĞµĞ»" << endl;
-      cout << "Ğ’Ğ²ĞµĞ´Ğ¸Ñ‚Ğµ Ñ‚Ñ€Ğ¸ Ñ‡Ğ¸ÑĞ»Ğ° 1. Ğ¡ ĞºĞ°ĞºĞ¾Ğ³Ğ¾ ÑĞ»ĞµĞ¼ĞµĞ½Ñ‚Ğ° Ñ…Ğ¾Ñ‚Ğ¸Ñ‚Ğµ Ğ¸Ğ·Ğ¼ĞµĞ½Ğ¸Ñ‚ÑŒ Ğ¿Ğ¾ÑĞ»ĞµĞ´Ğ¾Ğ²Ğ°Ñ‚ĞµĞ»ÑŒĞ½Ğ¾ÑÑ‚ÑŒ. 2. Ğ¡ĞºĞ¾Ğ»ÑŒĞºĞ¾ Ñ…Ğ¾Ñ‚Ğ¸Ñ‚Ğµ Ñ†Ğ¸Ñ„Ñ€ Ğ´Ğ¾Ğ±Ğ°Ğ²Ğ¸Ñ‚ÑŒ. 3. Ğ’Ğ²ĞµĞ´Ğ¸Ñ‚Ğµ ĞºĞ°ĞºÑƒÑ Ñ†Ğ¸Ñ„Ñ€Ñƒ Ğ²Ñ‹ Ñ…Ğ¾Ñ‚Ğ¸Ñ‚Ğµ Ğ´Ğ¾Ğ±Ğ°Ğ²Ğ¸Ñ‚ÑŒ: " << endl;
+      cout << "Åñòü ïîñëåäîâàòåëüíîñòü èç " << numbers3.size() << " ÷èñåë" << endl;
+      cout << "Ââåäèòå òğè ÷èñëà 1. Ñ êàêîãî ıëåìåíòà õîòèòå èçìåíèòü ïîñëåäîâàòåëüíîñòü. 2. Ñêîëüêî õîòèòå öèôğ äîáàâèòü. 3. Ââåäèòå êàêóş öèôğó âû õîòèòå äîáàâèòü: " << endl;
       cout << " 1) ";
       cin >> h;
 
@@ -112,32 +112,32 @@ int main() {
       cin >> k;
       auto iter3 = numbers3.cbegin();
       numbers3.insert(iter3 + h, l, k);
-      cout << "Ğ¡Ğ¾Ğ´ĞµÑ€Ğ¶Ğ¸Ğ¼Ğ¾Ğµ Ğ²ĞµĞºÑ‚Ğ¾Ñ€Ğ° ÑĞµĞ¹Ñ‡Ğ°Ñ: " ;
+      cout << "Ñîäåğæèìîå âåêòîğà ñåé÷àñ: " ;
       for(int i = 0; i < numbers3.size(); i++) {
         cout << numbers3[i] << " ";
       }
       cout << endl;
 
       if(numbers3.empty()) {
-        cout << "Ğ’Ğ°Ñˆ Ğ²ĞµĞºÑ‚Ğ¾Ñ€ Ğ¿ÑƒÑÑ‚! " << endl;
+        cout << "Âàø âåêòîğ ïóñò! " << endl;
       }
       else
-        cout << "Ğ’Ğ°Ñˆ Ğ²ĞµĞºÑ‚Ğ¾Ñ€ Ğ¸Ğ¼ĞµĞµÑ‚ Ñ‡Ğ¸ÑĞ»Ğ°! " << endl;
+        cout << "Âàø âåêòîğ èìååò ÷èñëà! " << endl;
 
        numbers3.resize(3);
-       cout << "Ğ˜Ğ·Ğ¼ĞµĞ½ÑĞµĞ¼ Ñ€Ğ°Ğ·Ğ¼ĞµÑ€ Ğ²ĞµĞºÑ‚Ğ¾Ñ€Ğ° Ğ½Ğ° 3 " << endl;
-       cout << "Ğ¢ĞµĞ¿ĞµÑ€ÑŒ Ñ€Ğ°Ğ·Ğ¼ĞµÑ€ Ğ²ĞµĞºÑ‚Ğ¾Ñ€Ğ° = " << numbers3.size() << endl;
-       cout << "Ğ¡Ğ¾Ğ´ĞµÑ€Ğ¶Ğ¸Ğ¼Ğ¾Ğµ Ğ²ĞµĞºÑ‚Ğ¾Ñ€Ğ° ÑĞµĞ¹Ñ‡Ğ°Ñ: ";
+       cout << "Èçìåíÿåì ğàçìåğ âåêòîğà íà 3 " << endl;
+       cout << "Òåïåğü ğàçìåğ âåêòîğà = " << numbers3.size() << endl;
+       cout << "Ñîäåğæèìîå âåêòîğà ñåé÷àñ: ";
        for(int i = 0; i < numbers3.size(); i++) {
         cout << numbers3[i] << " ";
        }
        cout << endl << endl;
 
 
-       cout << "Ğ”ĞµĞ»Ğ°ĞµĞ¼ numbers3.resize(11, 3) " << endl;
+       cout << "Äåëàåì numbers3.resize(11, 3) " << endl;
        numbers3.resize(11, 3);
-       cout << "Ğ¡ĞµĞ¹Ñ‡Ğ°Ñ Ñ€Ğ°Ğ·Ğ¼ĞµÑ€ Ğ²ĞµĞºÑ‚Ğ¾Ñ€Ğ° = " << numbers3.size() << endl;
-       cout << "Ğ¡Ğ¾Ğ´ĞµÑ€Ğ¶Ğ¸Ğ¼Ğ¾Ğµ Ğ²ĞµĞºÑ‚Ğ¾Ñ€Ğ° ÑĞµĞ¹Ñ‡Ğ°Ñ: ";
+       cout << "Ñåé÷àñ ğàçìåğ âåêòîğà = " << numbers3.size() << endl;
+       cout << "Ñîäåğæèìîå âåêòîğà ñåé÷àñ: ";
        for(int i = 0; i < numbers3.size(); i++) {
         cout << numbers3[i] << " ";
        }
