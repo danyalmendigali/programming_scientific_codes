@@ -9,6 +9,7 @@ using namespace std;
 int main() {
     cin.tie(0);
     setlocale(LC_ALL, "Russian");
+
     cout << "Введите размер первого вектора: ";
     int n, n2;
     cin >> n;
