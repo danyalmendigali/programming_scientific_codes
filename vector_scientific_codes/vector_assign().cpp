@@ -4,7 +4,7 @@ using namespace std;
 #define ll long long
 #define array arr
 
-// Функция assign() позволяет заменить все элементы вектора определенным набором:
+// Функция assign() позволяет заменить все элементы вектора определенным набором
 
 int main() {
      ios::sync_with_stdio(false);
