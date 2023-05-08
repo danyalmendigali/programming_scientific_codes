@@ -6,7 +6,7 @@ using namespace std;
 
 int main() {
      ios::sync_with_stdio(false);
-     cin.tie();
+     cin.tie(0);
      setlocale(LC_ALL, "Russian");
 
      vector <int> v;
