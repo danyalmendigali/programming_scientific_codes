@@ -2,7 +2,7 @@
 using namespace std;
 
 #define ll long long
-#define array arr
+#define ar array
 
 // Используем итераторы для перебора элементов вектора
 // *iter: получение элемента, на который указывает итератор
@@ -11,13 +11,7 @@ using namespace std;
 // iter1 == iter2: два итератора равны, если они указывают на один и тот же элемент
 // iter1 != iter2: два итератора не равны, если они указывают на разные элементы
 
-
-int main() {
-    cin.tie(0);
-    setlocale(LC_ALL, "Russian");
-
-
-
+void solve() {
     cout << "Программа №1" << endl;
     vector <int> numbers1 {76, 47, 35, 25, 85}, numbers2 {63, 91, 101, 45, 63};
 
@@ -82,6 +76,67 @@ int main() {
         cout << *it << " "; // выводим значение элемента, на который указывает итератор
         ++it; // и переходим к следующему элементу
     }
+    cout << endl << endl;
+
+
+    cout << "Программа №4" << endl;
+    vector <int> namevector;
+    namevector.push_back(3);
+    namevector.push_back(4);
+    namevector.push_back(6);
+    vector <int>::iterator iter3; // создаем итератор
+    for(iter3 = namevector.end() - 1; iter3 >= namevector.begin(); --iter3) {
+        cout << *iter3 << " ";
+    }
+
+
+    cout << endl << endl << endl << endl;
+
+
+    cout << "Программа №5" << endl;
+    string s("some string");
+    if(s.begin() != s.end()) { // Значит сторока не пуста
+        auto it = s.begin(); // it указывает на первый символ строки s
+        *it = toupper(*it); // текущий символ в верхний регистр
+
+    }
+
+    for(int i = 0; i < s.size(); i++) {
+        cout << s[i] << " ";
+    }
+    cout << endl << endl << endl << endl;
+
+
+
+
+     cout << "Программа №6" << endl;
+     string s1("some string");
+     if(s1.begin() != s1.end()) {
+        auto it4 = s1.begin();
+        for(auto it4 = s1.begin(); it4 != s1.end() - 1 && !isspace(*it4); ++it4) {
+            *it4 = toupper(*it4);
+        }
+     }
+
+    for(int i = 0; i < s.size(); i++) {
+        cout << s[i];
+    }
+
+
+}
+
+
+int main() {
+    ios::sync_with_stdio(false);
+    cin.tie(0);
+    setlocale(LC_ALL, "Russian");
+
+    /* int t;
+    cin >> t;
+    while(t--)
+    */
+
+      solve();
 
 
 
