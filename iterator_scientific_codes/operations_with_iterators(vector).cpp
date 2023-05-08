@@ -11,19 +11,11 @@ using namespace std;
 // iter1 == iter2: РґРІР° РёС‚РµСЂР°С‚РѕСЂР° СЂР°РІРЅС‹, РµСЃР»Рё РѕРЅРё СѓРєР°Р·С‹РІР°СЋС‚ РЅР° РѕРґРёРЅ Рё С‚РѕС‚ Р¶Рµ СЌР»РµРјРµРЅС‚
 // iter1 != iter2: РґРІР° РёС‚РµСЂР°С‚РѕСЂР° РЅРµ СЂР°РІРЅС‹, РµСЃР»Рё РѕРЅРё СѓРєР°Р·С‹РІР°СЋС‚ РЅР° СЂР°Р·РЅС‹Рµ СЌР»РµРјРµРЅС‚С‹
 
-<<<<<<< HEAD
-void solve() {
-    cout << "Программа №1" << endl;
-=======
-
 int main() {
-    cin.tie(0);
+   cin.tie(0);
     setlocale(LC_ALL, "Russian");
 
-
-
     cout << "РџСЂРѕРіСЂР°РјРјР° в„–1" << endl;
->>>>>>> ccdf5677048eb415d0bbf916b802b55e810b7c75
     vector <int> numbers1 {76, 47, 35, 25, 85}, numbers2 {63, 91, 101, 45, 63};
 
     cout << "Р Р°Р·РјРµСЂ РїРµСЂРІРѕРіРѕ РІРµРєС‚РѕСЂР°: " << numbers1.size() << endl;
@@ -90,12 +82,12 @@ int main() {
     cout << endl << endl;
 
 
-    cout << "Программа №4" << endl;
+    cout << "РџСЂРѕРіСЂР°РјРјР° 4" << endl;
     vector <int> namevector;
     namevector.push_back(3);
     namevector.push_back(4);
     namevector.push_back(6);
-    vector <int>::iterator iter3; // создаем итератор
+    vector <int>::iterator iter3; 
     for(iter3 = namevector.end() - 1; iter3 >= namevector.begin(); --iter3) {
         cout << *iter3 << " ";
     }
@@ -104,11 +96,11 @@ int main() {
     cout << endl << endl << endl << endl;
 
 
-    cout << "Программа №5" << endl;
+    cout << "РџСЂРѕРіСЂР°РјРјР° 5" << endl;
     string s("some string");
-    if(s.begin() != s.end()) { // Значит сторока не пуста
-        auto it = s.begin(); // it указывает на первый символ строки s
-        *it = toupper(*it); // текущий символ в верхний регистр
+    if(s.begin() != s.end()) { 
+        auto it = s.begin(); 
+        *it = toupper(*it); 
 
     }
 
@@ -120,7 +112,7 @@ int main() {
 
 
 
-     cout << "Программа №6" << endl;
+     cout << "РџСЂРѕРіСЂР°РјРјР° 6" << endl;
      string s1("some string");
      if(s1.begin() != s1.end()) {
         auto it4 = s1.begin();
@@ -132,22 +124,6 @@ int main() {
     for(int i = 0; i < s.size(); i++) {
         cout << s[i];
     }
-
-
-}
-
-
-int main() {
-    ios::sync_with_stdio(false);
-    cin.tie(0);
-    setlocale(LC_ALL, "Russian");
-
-    /* int t;
-    cin >> t;
-    while(t--)
-    */
-
-      solve();
 
 
 
