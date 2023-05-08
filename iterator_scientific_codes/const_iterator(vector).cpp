@@ -4,7 +4,6 @@ using namespace std;
 #define ll long long
 #define ar array
 
-
 void solve() {
     /*
     const vector <int> v {1, 2, 3, 4, 5}; // Констнантный вектор
