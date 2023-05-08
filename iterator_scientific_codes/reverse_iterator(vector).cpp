@@ -4,7 +4,6 @@ using namespace std;
 #define ll long long
 #define ar array
 
-
 void solve() {
      cout << "Введите количество чисел в первом векторе: ";
      int l1, l2;
