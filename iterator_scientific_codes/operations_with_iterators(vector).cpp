@@ -45,7 +45,6 @@ int main() {
 
 
 
-
      cout << "Программа №2" << endl;
      vector <int> v {1, 2, 3, 4, 5};
     auto iter = v.begin();
