@@ -8,14 +8,14 @@ void solve() {
      vector <int> numbers_vector {1, 2, 3, 4, 5};
      list <int> numbers_list {10, 11, 12, 13, 14};
 
-     cout << "Åñòü vector <int> numbers_vector {1, 2, 3, 4, 5}" << endl;
-     cout << "Åñòü list <int> numbers_list {10, 11, 12, 13, 14}" << endl;
+     cout << "Ğ•ÑÑ‚ÑŒ vector <int> numbers_vector {1, 2, 3, 4, 5}" << endl;
+     cout << "Ğ•ÑÑ‚ÑŒ list <int> numbers_list {10, 11, 12, 13, 14}" << endl;
      cout << endl;
 
-     cout << "Ğàçìåğ âåêòîğà: " << numbers_vector.size() << endl;
-     cout << "Ğàçìåğ ëèñòà: " << numbers_list.size() << endl;
+     cout << "Ğ Ğ°Ğ·Ğ¼ĞµÑ€ Ğ²ĞµĞºÑ‚Ğ¾Ñ€Ğ°: " << numbers_vector.size() << endl;
+     cout << "Ğ Ğ°Ğ·Ğ¼ĞµÑ€ Ğ»Ğ¸ÑÑ‚Ğ°: " << numbers_list.size() << endl;
 
-     cout << "Ñîäåğæèìîå âåêòîğà" << endl;
+     cout << "Ğ¡Ğ¾Ğ´ĞµÑ€Ğ¶Ğ¸Ğ¼Ğ¾Ğµ Ğ²ĞµĞºÑ‚Ğ¾Ñ€Ğ°" << endl;
     for(vector <int>::const_iterator iter = numbers_vector.cbegin(); iter != numbers_vector.cend(); ++iter)
     {
         cout << *iter << " ";
@@ -23,7 +23,7 @@ void solve() {
     cout << endl << endl;
 
 
-   cout << "Ñîäåğæèìîå ëèñòà" << endl;
+   cout << "Ğ¡Ğ¾Ğ´ĞµÑ€Ğ¶Ğ¸Ğ¼Ğ¾Ğµ Ğ»Ğ¸ÑÑ‚Ğ°" << endl;
     for(list <int>::const_iterator iter2 = numbers_list.cbegin(); iter2 != numbers_list.cend(); ++iter2)
     {
         cout << *iter2 << " ";
@@ -31,7 +31,7 @@ void solve() {
     cout << endl << endl;
 
 
-    cout << "Ñîäåğæèìîå âåêòîğà ñ èñïîëüçîâàíèåì ğåâåğñèâíîãî èòåğàòîğà" << endl;
+    cout << "Ğ¡Ğ¾Ğ´ĞµÑ€Ğ¶Ğ¸Ğ¼Ğ¾Ğµ Ğ²ĞµĞºÑ‚Ğ¾Ñ€Ğ° Ñ Ğ¸ÑĞ¿Ğ¾Ğ»ÑŒĞ·Ğ¾Ğ²Ğ°Ğ½Ğ¸ĞµĞ¼ Ñ€ĞµĞ²ĞµÑ€ÑĞ¸Ğ²Ğ½Ğ¾Ğ³Ğ¾ Ğ¸Ñ‚ĞµÑ€Ğ°Ñ‚Ğ¾Ñ€Ğ°" << endl;
     for(vector <int>::const_reverse_iterator iter3 = numbers_vector.crbegin(); iter3 != numbers_vector.crend(); ++iter3)
     {
         cout << *iter3 << " ";
@@ -39,7 +39,7 @@ void solve() {
     cout << endl << endl;
 
 
-    cout << "Ñîäåğæèìîå ëèñòà ñ èñïîëüçîâàíèåì ğåâåğñèâíîãî èòåğàòîğà" << endl;
+    cout << "Ğ¡Ğ¾Ğ´ĞµÑ€Ğ¶Ğ¸Ğ¼Ğ¾Ğµ Ğ»Ğ¸ÑÑ‚Ğ° Ñ Ğ¸ÑĞ¿Ğ¾Ğ»ÑŒĞ·Ğ¾Ğ²Ğ°Ğ½Ğ¸ĞµĞ¼ Ñ€ĞµĞ²ĞµÑ€ÑĞ¸Ğ²Ğ½Ğ¾Ğ³Ğ¾ Ğ¸Ñ‚ĞµÑ€Ğ°Ñ‚Ğ¾Ñ€Ğ°" << endl;
     for(list <int>::const_reverse_iterator iter4 = numbers_list.crbegin(); iter4 != numbers_list.crend(); ++iter4)
     {
         cout << *iter4 << " ";
@@ -47,54 +47,54 @@ void solve() {
     cout << endl << endl;
 
 
-    cout << "Äîáàâëÿåì â êîíåö âåêòîğà ÷èñëà ñ ïîìîùüş ìåòîäà push_back()" << endl;
+    cout << "Ğ”Ğ¾Ğ±Ğ°Ğ²Ğ»ÑĞµĞ¼ Ğ² ĞºĞ¾Ğ½ĞµÑ† Ğ²ĞµĞºÑ‚Ğ¾Ñ€Ğ° Ñ‡Ğ¸ÑĞ»Ğ° Ñ Ğ¿Ğ¾Ğ¼Ğ¾Ñ‰ÑŒÑ Ğ¼ĞµÑ‚Ğ¾Ğ´Ğ° push_back()" << endl;
     for(int i = 0; i < 10; i++) {
         numbers_vector.push_back(i);
     }
     cout << endl;
 
-    cout << "Äîáàâëÿåì â êîíåö ëèñòà ÷èñëà ñ ïîìîùüş ìåòîäà push_back()" << endl;
+    cout << "Ğ”Ğ¾Ğ±Ğ°Ğ²Ğ»ÑĞµĞ¼ Ğ² ĞºĞ¾Ğ½ĞµÑ† Ğ»Ğ¸ÑÑ‚Ğ° Ñ‡Ğ¸ÑĞ»Ğ° Ñ Ğ¿Ğ¾Ğ¼Ğ¾Ñ‰ÑŒÑ Ğ¼ĞµÑ‚Ğ¾Ğ´Ğ° push_back()" << endl;
     for(int i = 10; i < 20; i++) {
         numbers_list.push_back(i);
     }
     cout << endl << endl;
 
-    cout << "Ñåé÷àñ ğàçìåğ âåêòîğ: " << numbers_vector.size() << endl;
-    cout << "Ñåé÷àñ ğàçìåğ ëèñòà: " << numbers_list.size() << endl;
+    cout << "Ğ¡ĞµĞ¹Ñ‡Ğ°Ñ Ñ€Ğ°Ğ·Ğ¼ĞµÑ€ Ğ²ĞµĞºÑ‚Ğ¾Ñ€: " << numbers_vector.size() << endl;
+    cout << "Ğ¡ĞµĞ¹Ñ‡Ğ°Ñ Ñ€Ğ°Ğ·Ğ¼ĞµÑ€ Ğ»Ğ¸ÑÑ‚Ğ°: " << numbers_list.size() << endl;
 
-    cout << "Âûâîäèì ñîäåğæèìîå âåêòîğà" << endl;
+    cout << "Ğ’Ñ‹Ğ²Ğ¾Ğ´Ğ¸Ğ¼ ÑĞ¾Ğ´ĞµÑ€Ğ¶Ğ¸Ğ¼Ğ¾Ğµ Ğ²ĞµĞºÑ‚Ğ¾Ñ€Ğ°" << endl;
     for(vector <int>::iterator iter5 = numbers_vector.begin(); iter5 != numbers_vector.end(); ++iter5)
     {
         cout << *iter5 << " ";
     }
     cout << endl << endl;
 
-    cout << "Âûâîäèì ñîäåğæèìîå ëèñòà" << endl;
+    cout << "Ğ’Ñ‹Ğ²Ğ¾Ğ´Ğ¸Ğ¼ ÑĞ¾Ğ´ĞµÑ€Ğ¶Ğ¸Ğ¼Ğ¾Ğµ Ğ»Ğ¸ÑÑ‚Ğ°" << endl;
     for(list <int>::iterator iter6 = numbers_list.begin(); iter6 != numbers_list.end(); ++iter6)
     {
         cout << *iter6 << " ";
     }
     cout << endl << endl;
 
-    cout << "Äîáàâëÿåì ÷èñëà â íà÷àëî ëèñòà ñ ïîìîùüş ôóíêöèè push_front";
+    cout << "Ğ”Ğ¾Ğ±Ğ°Ğ²Ğ»ÑĞµĞ¼ Ñ‡Ğ¸ÑĞ»Ğ° Ğ² Ğ½Ğ°Ñ‡Ğ°Ğ»Ğ¾ Ğ»Ğ¸ÑÑ‚Ğ° Ñ Ğ¿Ğ¾Ğ¼Ğ¾Ñ‰ÑŒÑ Ñ„ÑƒĞ½ĞºÑ†Ğ¸Ğ¸ push_front";
 
     for(int i = 0; i < 20; i++)
     {
         numbers_list.push_front(i);
     }
 
-    cout << "Ğàçìåğ ëèñòà ïîñëå ôóíêöèè push_front() = " << numbers_list.size() << endl;
+    cout << "Ğ Ğ°Ğ·Ğ¼ĞµÑ€ Ğ»Ğ¸ÑÑ‚Ğ° Ğ¿Ğ¾ÑĞ»Ğµ Ñ„ÑƒĞ½ĞºÑ†Ğ¸Ğ¸ push_front() = " << numbers_list.size() << endl;
     for(list <int>::const_iterator iter7 = numbers_list.cbegin(); iter7 != numbers_list.cend(); ++iter7)
     {
         cout << *iter7 << " ";
     }
     cout << endl << endl;
 
-    cout << "Capacity âåêòîğà: " << numbers_vector.capacity() << endl;
-    cout << "size() âåêòîğà: " << numbers_vector.size() << endl;
+    cout << "Capacity Ğ²ĞµĞºÑ‚Ğ¾Ñ€Ğ°: " << numbers_vector.capacity() << endl;
+    cout << "size() Ğ²ĞµĞºÑ‚Ğ¾Ñ€Ğ°: " << numbers_vector.size() << endl;
     cout << endl;
-    cout << "Êîíòåéíåğ list â ñòàíäàğòíîé áèáëèîòåêå ÿçûêà C++ íå èìååò ôóíêöèè capacity" << endl;
-    cout << "size() ëèñòà: " << numbers_list.size() << endl;
+    cout << "ĞšĞ¾Ğ½Ñ‚ĞµĞ¹Ğ½ĞµÑ€ list Ğ² ÑÑ‚Ğ°Ğ½Ğ´Ğ°Ñ€Ñ‚Ğ½Ğ¾Ğ¹ Ğ±Ğ¸Ğ±Ğ»Ğ¸Ğ¾Ñ‚ĞµĞºĞµ ÑĞ·Ñ‹ĞºĞ° C++ Ğ½Ğµ Ğ¸Ğ¼ĞµĞµÑ‚ Ñ„ÑƒĞ½ĞºÑ†Ğ¸Ğ¸ capacity" << endl;
+    cout << "size() Ğ»Ğ¸ÑÑ‚Ğ°: " << numbers_list.size() << endl;
 
 
 
