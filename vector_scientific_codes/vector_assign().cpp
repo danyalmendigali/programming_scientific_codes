@@ -11,7 +11,6 @@ int main() {
      cin.tie();
      setlocale(LC_ALL, "Russian");
 
-
      cout << "Вектор #1: " << endl;
      cout << "Введите количество чисел в первом векторе: ";
      int l1, l2;
