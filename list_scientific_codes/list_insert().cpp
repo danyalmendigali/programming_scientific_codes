@@ -17,18 +17,18 @@ void solve() {
         cout << "Введите элемент #" << i << ": ";
         int a;
         cin >> a;
-        numbers1.push_back(a);
+        numbers1.push_back(a); /// добавляем в конец листа элементы
     }
     cout << endl;
 
-    if(numbers1.empty()) {
+    if(numbers1.empty()) { /// проверяем пустой ли лист или нет
         cout << "Ваш лист не пуст!" << endl;
     }
     else cout << "Ваш лист пуст!" << endl;
     cout << endl;
 
     cout << "Создаем реверсивный итератор(выводи лист в обратном порядке)" << endl;
-    for (list<int>::reverse_iterator iter = numbers1.rbegin(); iter != numbers1.rend(); ++iter) {
+    for (list<int>::reverse_iterator iter = numbers1.rbegin(); iter != numbers1.rend(); ++iter) { /// Выводим лист в обратном порядке использую реверсивный итератор
         cout << *iter << " ";
     }
     cout << endl;
@@ -40,7 +40,7 @@ void solve() {
         int b;
         cout << "Введите " << i << " элемент: ";
         cin >> b;
-        numbers1.push_front(b);
+        numbers1.push_front(b); /// добавляем элементы в конец листа
     }
     cout << "Создаем второй лист и даем значение равное первому листу" << endl;
     list <int> numbers2 = numbers1;
@@ -60,9 +60,9 @@ void solve() {
     cin >> y;
     auto iter4 = numbers2.begin();
     auto iter5 = numbers2.begin();
-    advance(iter4, t);
-    advance(iter5, y);
-    numbers2.erase(iter4, iter5);
+    advance(iter4, t); /// она позволяет перемещаться по элементам в контейнере с использованием итераторов (advance)
+    advance(iter5, y); /// она позволяет перемещаться по элементам в контейнере с использованием итераторов (advance)
+    numbers2.erase(iter4, iter5); /// удаляем элементы от iter4 до iter5
 
     cout << endl;
     cout << "Сейчас содержимое листа: ";
@@ -85,7 +85,7 @@ void solve() {
 
     auto iter6 = numbers2.begin();
     advance(iter6, g1);
-    numbers2.insert(iter6, g2, g3);
+    numbers2.insert(iter6, g2, g3); /// добавляем элементы g2 штук, g3 какое число и iter6 начиная с какого элемента
 
     cout << endl;
     cout << "Вывод содержимое листа после добавление чисел (insert): ";
@@ -97,7 +97,7 @@ void solve() {
 
     cout << "Удаляем три последних числа" << endl;
     for(int i = 0; i < 3; i++) {
-        numbers2.pop_back();
+        numbers2.pop_back(); /// удаляем элементы начиная с конца
     }
 
     cout << "Вывод содержимое листа после удаления трех чисел: ";
