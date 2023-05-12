@@ -227,18 +227,6 @@ void solve() {
    }
    cout << endl << endl;
 
-
-
-
-
-
-
-
-
-
-
-
-
 }
 
 
@@ -246,7 +234,16 @@ void solve() {
 int main() {
     cin.tie(0);
     setlocale(LC_ALL, "Russian");
-    solve();
+    /*
+
+    int t;
+    cin >> t;
+    while(t--)
+
+    */
+      solve();
+
+
 
 
 
