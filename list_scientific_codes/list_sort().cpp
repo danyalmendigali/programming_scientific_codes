@@ -5,7 +5,7 @@ using namespace std;
 #define ll long long
 #define ar array
 
-/// reverse() в C++ - это алгоритм из стандартной библиотеки (STL), который изменяет порядок элементов в контейнере на обратный.
+/// sort() в C++ для списка (std::list) является методом контейнера, который сортирует элементы в порядке возрастания
 
 void solve() {
     int n, n1;
@@ -161,7 +161,7 @@ void solve() {
 
    cout << "Лист #1" << endl;
    cout << "Сортируем первый лист" << endl;
-   numbers1.sort();
+   numbers1.sort(); /// Сортируем первый лист
    cout << "Размер первого листа: " << numbers1.size() << endl;
    cout << "Выводим содержимое первого листа: ";
    for(list <int>::iterator iter12 = numbers1.begin(); iter12 != numbers1.end(); ++iter12)
@@ -173,7 +173,7 @@ void solve() {
 
    cout << "Лист #2" << endl;
    cout << "Сортируем второй лист" << endl;
-   numbers2.sort();
+   numbers2.sort(); /// Сортируем второй лист
    cout << "Размер второго листа: " << numbers2.size() << endl;
    cout << "Вывод содержание второго листа: ";
    for(list <int>::iterator iter13 = numbers2.begin(); iter13 != numbers2.end(); ++iter13)
@@ -241,7 +241,7 @@ void solve() {
    }
 
    cout << "Сортируем третий лист: ";
-   numbers3.sort();
+   numbers3.sort(); /// Сортируем третий лист
    for(list <int>::iterator iter19 = numbers3.begin(); iter19 != numbers3.end(); ++iter19)
    {
        cout << *iter19 << " ";
@@ -270,11 +270,9 @@ int main() {
 
 
 
-
-
       /*
       list <int> myList {4, 7, 3, 7, 3, 19, 3}; // Создали лист
-      myList.sort(); // Отсоритровала лист
+      myList.sort(); // Отсоритровали лист
       for(int u : myList) { // Выводим лист
         cout << u << " ";
       }

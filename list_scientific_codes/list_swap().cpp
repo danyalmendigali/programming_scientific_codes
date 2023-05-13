@@ -4,7 +4,7 @@ using namespace std;
 #define ll long long
 #define ar array
 
-/// reverse() в C++ - это алгоритм из стандартной библиотеки (STL), который изменяет порядок элементов в контейнере на обратный.
+/// swap меняет содержимое двух листов
 
 void solve() {
     int n, n1;
@@ -262,8 +262,6 @@ int main() {
 
     */
       solve();
-
-
 
 
 

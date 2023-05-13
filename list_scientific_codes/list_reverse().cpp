@@ -266,7 +266,7 @@ int main() {
       }
       cout << endl << endl;
 
-      reverse(myList1.begin(), myList1.end());
+      reverse(myList1.begin(), myList1.end()); /// Поменяли порядок на обратный
       cout << "Содержмое первого листа после функции reverse(): ";
       for(int r : myList1)
       {
@@ -275,7 +275,7 @@ int main() {
 
       cout << endl;
 
-      reverse(myList2.begin(), myList2.end());
+      reverse(myList2.begin(), myList2.end()); /// Поменяли порядок на обратный
       cout << "Содержмое вторго листа после функции reverse(): ";
       for(int e : myList2)
       {
