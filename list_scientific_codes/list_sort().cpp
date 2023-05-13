@@ -228,6 +228,27 @@ void solve() {
    }
    cout << endl << endl;
 
+
+   int u;
+   cout << "Введите размер третьего листа: ";
+   cin >> u;
+   list <int> numbers3;
+   for(int i = 0;  i < u; i++) {
+       int q;
+       cout << "Введите #" << i << " : ";
+       cin >> q;
+       numbers3.push_back(q);
+   }
+
+   cout << "Сортируем третий лист: ";
+   numbers3.sort();
+   for(list <int>::iterator iter19 = numbers3.begin(); iter19 != numbers3.end(); ++iter19)
+   {
+       cout << *iter19 << " ";
+   }
+   cout << endl << endl;
+
+
 }
 
 
@@ -236,54 +257,28 @@ int main() {
     cin.tie(0);
     SetConsoleCP(65001);
     SetConsoleOutputCP(65001);
+    /*
 
-     /*
     int t;
     cin >> t;
     while(t--)
-     */
-      solve()
+
+    */
+      solve();
 
 
 
 
 
-         /*
-      list <int> myList1 {2, 10, 1, 6, 89, 4};
-      list <int> myList2 {7, 9, 3, 67, 3, 6, 3};
-      myList1.sort();
-      myList2.sort();
 
-      cout << "Первый лист до фунуции reverse(): ";
-      for(int u : myList1) {
+
+      /*
+      list <int> myList {4, 7, 3, 7, 3, 19, 3}; // Создали лист
+      myList.sort(); // Отсоритровала лист
+      for(int u : myList) { // Выводим лист
         cout << u << " ";
       }
-      cout << endl;
-
-      cout << "Второй лист до фунуции reverse(): ";
-      for(int h : myList2) {
-        cout << h << " ";
-      }
-      cout << endl << endl;
-
-      reverse(myList1.begin(), myList1.end());
-      cout << "Содержмое первого листа после функции reverse(): ";
-      for(int r : myList1)
-      {
-          cout << r << " ";
-      }
-
-      cout << endl;
-
-      reverse(myList2.begin(), myList2.end());
-      cout << "Содержмое вторго листа после функции reverse(): ";
-      for(int e : myList2)
-      {
-          cout << e << " ";
-      }
       */
-
-
 
    return 0;
 }
