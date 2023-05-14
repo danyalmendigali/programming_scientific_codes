@@ -5,14 +5,12 @@ using namespace std;
 #define ll long long
 #define ar array
 
-/// sort() в C++ для списка (std::list) является методом контейнера, который сортирует элементы в порядке возрастания
-
 void solve() {
     int n, n1;
     cout << "Введите размер первого листа: ";
     cin >> n;
     cout << "Введите размер второго листа: ";
-    cin >> n1;A
+    cin >> n1;
     list <int> numbers1, numbers2;
 
 
@@ -159,16 +157,44 @@ void solve() {
 
    cout << endl << endl;
 
+      auto max_1 = max_element(numbers1.begin(), numbers1.end());
+      auto max_2 = max_element(numbers2.begin(), numbers2.end());
+      auto min_1 = min_element(numbers1.begin(), numbers1.end());
+      auto min_2 = min_element(numbers2.begin(), numbers2.end());
+
+   cout << "Находим максимум в первом листе" << endl;
+   cout << "Максимальный элемент: " << *max_1 << endl;
+   cout << endl;
+
+
+   cout << "Находим максимум во втором листе" << endl;
+   cout << "Максимальный элемент: " << *max_2 << endl;
+   cout << endl;
+
+
+   cout << "Находим минимум в первом листе" << endl;
+   cout << "Минимальный элемент: " << *min_1 << endl;
+   cout << endl;
+
+
+
+   cout << "Находим минимум во втором листе" << endl;
+   cout << "Минимальный элемент: " << *min_2 << endl;
+   cout << endl;
+
+
+
+
    cout << "Лист #1" << endl;
    cout << "Сортируем первый лист" << endl;
    numbers1.sort(); /// Сортируем первый лист
    cout << "Размер первого листа: " << numbers1.size() << endl;
    cout << "Выводим содержимое первого листа: ";
-   for(list <int>::iterator iter12 = numbers1.begin(); iter12 != numbers1.end(); ++iter12)
-   {
-       cout << *iter12 << " ";
+   for(int j : numbers1) {
+     cout << j << " ";
    }
-   cout << endl << endl;
+   cout << endl << endl << endl;
+
 
 
    cout << "Лист #2" << endl;
@@ -176,107 +202,71 @@ void solve() {
    numbers2.sort(); /// Сортируем второй лист
    cout << "Размер второго листа: " << numbers2.size() << endl;
    cout << "Вывод содержание второго листа: ";
-   for(list <int>::iterator iter13 = numbers2.begin(); iter13 != numbers2.end(); ++iter13)
-   {
-       cout << *iter13 << " ";
+   for(int t : numbers2) {
+     cout << t << " ";
    }
    cout << endl << endl << endl;
 
-   cout << "Преминяем функцию merge()" << endl;
-   numbers1.merge(numbers2); /// Слияния двух отсортированных диапазонов элементов в один отсортированный диапазон
 
-   cout << "Размер листа = " << numbers1.size() << endl;
-   cout << "Вывод содержание второго листа: ";
-   for(list <int>::iterator iter14 = numbers1.begin(); iter14 != numbers1.end(); ++iter14)
-   {
-       cout << *iter14 << " ";
+   cout << "Введите число которое хотите убарть с первого листа: ";
+   int list_delete_1;
+   cin >> list_delete_1;
+   numbers1.remove(list_delete_1);
+   cout << "Размер первого листа после удаления: " << numbers1.size() << endl;
+   cout << "Содержимое первого листа: ";
+   for(auto d : numbers1) {
+       cout << d << " ";
    }
-   cout << endl << endl;
-
-   cout << "Введите число которое хотите убрать c листа: ";
-   int delete_num;
-   cin >> delete_num;
-   numbers1.remove(delete_num); /// remove() удаляет все элементы со значением delete_num
-   cout << "Размер листа после удаления таких цифр как " << delete_num << " = " << numbers1.size() << endl;
-   cout << "Содержание: ";
-   for(list <int>::iterator iter15 = numbers1.begin(); iter15 != numbers1.end(); ++iter15)
-   {
-       cout << *iter15 << " ";
-   }
-   cout << endl << endl;
-
-
-   cout << "Сейчас мы уберем повторяющиеся цифры" << endl;
-   numbers1.unique(); /// Убирает повторяющиеся элементы
-   cout << "Размер листа = " << numbers1.size() << endl;
-   cout << "Содержание: ";
-   for(list <int>::iterator iter16 = numbers1.begin(); iter16 != numbers1.end(); ++iter16)
-   {
-       cout << *iter16 << " ";
-   }
-
-   cout << endl << endl;
-
-   cout << "Сейчас для вывода листа используем функцию reverse() она выведит лист в обратном порядке";
-   reverse(numbers1.begin(), numbers1.end()); /// изменили порядок на обратный
    cout << endl;
 
-   cout << "Выводим содержание: ";
-   for(list <int>::iterator iter17 = numbers1.begin(); iter17 != numbers1.end(); ++iter17)
-   {
-       cout << *iter17 << " ";
+   cout << "Введите число которое хотите убрать со второго листа: ";
+   int list_delete_2;
+   cin >> list_delete_2;
+   numbers2.remove(list_delete_2);
+   cout << "Размер второго листа после удаления: " << numbers2.size() << endl;
+   cout << "Содержимое второго листа: ";
+   for(auto f : numbers2) {
+      cout << f << " ";
    }
    cout << endl << endl;
 
 
-   int u;
-   cout << "Введите размер третьего листа: ";
-   cin >> u;
-   list <int> numbers3;
-   for(int i = 0;  i < u; i++) {
-       int q;
-       cout << "Введите #" << i << " : ";
-       cin >> q;
-       numbers3.push_back(q);
-   }
-
-   cout << "Сортируем третий лист: ";
-   numbers3.sort(); /// Сортируем третий лист
-   for(list <int>::iterator iter19 = numbers3.begin(); iter19 != numbers3.end(); ++iter19)
-   {
-       cout << *iter19 << " ";
+   cout << "Сейчас мы уберем повторяющиеся цифры c первого листа" << endl;
+   numbers1.unique();
+   cout << "Размер первого листа после unique(): " << numbers1.size() << endl;
+   cout << "Содержимое первого листа после unique(): ";
+   for(int h : numbers1) {
+      cout << h << " ";
    }
    cout << endl << endl;
+
+   cout << "Сейчас мы уберем повторяющиеся цифры cо второго листа" << endl;
+   numbers1.unique();
+   cout << "Размер второго листа после unique(): " << numbers2.size() << endl;
+   cout << "Содержимое второго листа после unique(): ";
+   for(int h : numbers2) {
+      cout << h << " ";
+   }
+   cout << endl << endl;
+
+
+
+
+
 
 
 }
-
-
 
 int main() {
     cin.tie(0);
     SetConsoleCP(65001);
     SetConsoleOutputCP(65001);
-    /*
 
-    int t;
-    cin >> t;
-    while(t--)
-
-    */
-      solve();
+    solve();
 
 
 
 
-
-      /*
-      list <int> myList {4, 7, 3, 7, 3, 19, 3}; // Создали лист
-      myList.sort(); // Отсоритровали лист
-      for(int u : myList) { // Выводим лист
-        cout << u << " ";
-      }
-      */
 
    return 0;
 }
