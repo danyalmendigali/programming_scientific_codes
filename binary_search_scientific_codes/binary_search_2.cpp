@@ -13,30 +13,31 @@ void binary_search() {
     cout << "Введите количество чисел в векторе: ";
     int n;
     cin >> n;
-    vector <int> binary_numbers;
+    vector <int> binary_numbers; // создали вектор
     for(int i = 0; i < n; i++) {
         int b;
         cout << "Введите " <<  i << " элемент: ";
-        cin >> b;
+        cin >> b; // считываем элементы вектора
         binary_numbers.push_back(b);
     }
 
-    sort(binary_numbers.begin(), binary_numbers.end());
+    sort(binary_numbers.begin(), binary_numbers.end()); // сортируем с помощью функции sort (быстрая сортировка)
     cout << "Введите число которое хотите найти: ";
-    int key;
-    cin >> key;
+    int key; // создали переменную в которой будет находиться число которое будем искать
+    cin >> key; // считываем число которое ищем
 
     bool flag = false;
-    int l = 0, r = binary_numbers.size() - 1;
+    int l = 0; // левая граница
+    int r = binary_numbers.size() - 1; // правая граница
     int mid;
 
     while((l <= r) && (flag != true)) {
-        mid = (l + r) / 2;
+        mid = (l + r) / 2; // считываем срединный индекс отрезка [l,r]
 
-        if(binary_numbers[mid] == key) {
+        if(binary_numbers[mid] == key) { //проверяем ключ со серединным элементом
             flag = true;
         }
-        if(binary_numbers[mid] > key) {
+        if(binary_numbers[mid] > key) { // проверяем, какую часть нужно отбросить
             r = mid - 1;
         }
         else {
