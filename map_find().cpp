@@ -15,13 +15,13 @@ int solve() {
 
     // Итерация по элементам map
     for (const auto& pair : studentMap) {
-        std::cout << pair.first << ": " << pair.second << std::endl;
+        cout << pair.first << ": " << pair.second << endl;
     }
 
     // Поиск элемента по ключу
     auto it = studentMap.find(2);
     if (it != studentMap.end()) {
-        std::cout << "Найден элемент с ключом 2: " << it->second << std::endl;
+        cout << "Найден элемент с ключом 2: " << it->second << endl;
     }
 
     // Удаление элемента по ключу
@@ -29,7 +29,7 @@ int solve() {
 
     // Проверка наличия элемента
     if (studentMap.count(3) == 0) {
-        std::cout << "Элемент с ключом 3 не найден." << std::endl;
+        cout << "Элемент с ключом 3 не найден." << endl;
     }
 
 }
