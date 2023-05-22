@@ -21,6 +21,9 @@ int solve() {
     }
 
 
+
+
+
     studentMap.erase(3);
 
     if(studentMap.count(3) == 0) {
