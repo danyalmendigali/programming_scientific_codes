@@ -6,7 +6,7 @@ using namespace std;
 #define ar array
 #define FOR(i, a, b) for(int i = a; i < b; i++)
 
-// Программа заменяет числа в строке c s1 до s2 своими числами
+// Программа заменяет числа в строке c s1 до s2 своими числами. Потом выполняется побайтное копирование строки
 
 void solve() {
     char sentences[200];
@@ -35,6 +35,17 @@ void solve() {
 
         cout << sentences[i];
     }
+
+    char sentences2[200];
+    strcpy(sentences2, sentences); // // копируем строку sentences в sentences2
+    cout << endl << endl;
+    cout << "Вторая стрка после побайтного копирование strcpy()" << endl;
+
+    for(char i : sentences2) {
+        cout << i;
+    }
+    cout << endl;
+
 
 
 
