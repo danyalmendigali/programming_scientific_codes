@@ -6,6 +6,7 @@ using namespace std;
 #define ar array
 #define FOR(i, a, b) for(int i = a; i < b; i++)
 
+// объявление перечисляемого типа
 enum days_of_week { Sun, Mon, Tue, Wed, Thu, Fri, Sat};
 
 
@@ -14,11 +15,11 @@ int main() {
     SetConsoleOutputCP(CP_UTF8);
     SetConsoleCP(CP_UTF8);
 
-    days_of_week day1, day2;
+    days_of_week day1, day2; // определения переменных
 
     day1 = Mon;
     day2 = Thu;
-    int diff = day2 - day1;
+    int diff = day2 - day1; // арифметическая операция
     cout << "Разница в днях: " << diff << endl;
 
     if(day1 < day2) {
