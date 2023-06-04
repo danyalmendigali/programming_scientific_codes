@@ -6,9 +6,15 @@ using namespace std;
 #define ar array
 #define FOR(i, a, b) for(int i = a; i < b; i++)
 
-// Функция с протитопом (предварительным использованием)
+// Функция без прототипа(предварительного использования)
 
-void starline(); // объявление функции (прототип)
+void starline() // определение функции starline()
+{
+    for(int i = 0; i < 45; i++) {
+        cout << '*';
+    }
+    cout << endl;
+}
 
 int main() {
     cin.tie(0);
@@ -26,14 +32,3 @@ int main() {
 
    return 0;
 }
-
-void starline() // заголовок функции
-{
-    for(int i = 0; i < 45; i++) { // тело функции
-        cout << '*';
-    }
-    cout << endl;
-}
-
-
-
