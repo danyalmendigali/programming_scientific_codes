@@ -6,6 +6,8 @@ using namespace std;
 #define ar array
 #define FOR(i, a, b) for(int i = a; i < b; i++)
 
+// передача переменных в функцию в качестве аргументов
+
 void repchar(char, int ); // объявление функции
 
 

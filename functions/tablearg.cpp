@@ -6,7 +6,7 @@ using namespace std;
 #define ar array
 #define FOR(i, a, b) for(int i = a; i < b; i++)
 
-// Функция с протитопом (предварительным использованием)
+// демонстрирует передачу аргументов в функцию)
 
 void repchar(char, int ); // объявление с указанием типов аргументов
 

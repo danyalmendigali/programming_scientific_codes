@@ -6,6 +6,8 @@ using namespace std;
 #define ar array
 #define FOR(i, a, b) for(int i = a; i < b; i++)
 
+// демонстрирует возвращение функцией структурной переменной
+
 struct Distance
 {
     int feet;

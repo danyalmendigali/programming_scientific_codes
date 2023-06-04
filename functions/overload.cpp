@@ -2,7 +2,7 @@
 #include <windows.h>
 using namespace std;
 
-// Функции можно различать между собой по количеству аргументов и их типам
+// перегрузка функций
 
 void repchar();
 void repchar(char);

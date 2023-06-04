@@ -8,7 +8,7 @@ using namespace std;
 
 float lbstokg(float); // прототип функции
 
-// демонстрирует механизм возврата значения функцией
+// более компактная версия программы convert
 
 int main() {
     cin.tie(0);

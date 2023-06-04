@@ -2,6 +2,7 @@
 #include <windows.h>
 using namespace std;
 
+// передача структурной переменной по ссылке
 
 struct Distance
 {

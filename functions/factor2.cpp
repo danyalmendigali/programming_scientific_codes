@@ -1,6 +1,7 @@
 #include <bits/stdc++.h>
 #include <windows.h>
 using namespace std;
+
 // подсчет факториала числа с помощью рекурсии
 
 unsigned long factfunc(unsigned long);  // прототип
