@@ -8,7 +8,8 @@ using namespace std;
 
 // Функция с протитопом (предварительным использованием)
 
-void repchar(char, int); // объявление функции (прототип)
+void repchar(char, int ); // объявление с указанием типов аргументов
+
 
 int main() {
     cin.tie(0);
