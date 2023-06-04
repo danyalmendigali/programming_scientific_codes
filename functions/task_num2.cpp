@@ -32,7 +32,6 @@ double power(double n, int p)
     int total;
     total = pow(n, p);
 
-
     return total;
 }
 
