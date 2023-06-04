@@ -25,7 +25,6 @@ int main() {
     cout << "n4 = " << n4 << endl;
 
 
-
   return 0;
 }
 
@@ -39,4 +38,3 @@ void order(int& num1, int& num2) { // упорядочивает два числ
     }
 
 }
-
