@@ -7,7 +7,7 @@ using namespace std;
 #define ar array
 #define FOR(i, a, b) for(int i = a; i < b; i++)
 
-// П
+// Считаем сумму элементов массива
 
 int sumOfArraytVowels(int* arr, int n);
 
@@ -26,10 +26,6 @@ int main() {
         cin >> arr[i];
     }
     cout << "Cумма элементов массива: " <<  sumOfArraytVowels(arr, n);
-
-
-
-
 
 
   return 0;
