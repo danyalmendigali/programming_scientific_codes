@@ -12,17 +12,17 @@ using namespace std;
 class Counter
 {
 private:
-    unsigned int count;
+    unsigned int count; // значение счетчика
 public:
-    Counter(): count(0) {}
+    Counter(): count(0) {} // конструктор
 
     void inc_count()
     {
-        count++;
+        count++; // инкрементирование счетчика
     }
     int get_count()
     {
-        return count;
+        return count; // получение значения счетчика
     }
 
 };
@@ -33,17 +33,17 @@ int main() {
     SetConsoleOutputCP(CP_UTF8);
     SetConsoleCP(CP_UTF8);
 
-    Counter c1, c2;
+    Counter c1, c2; // определение с инициализацией
 
-    cout << "c1 = " << c1.get_count() << " ";
-    cout << "c2 = " << c2.get_count() << endl;
+    cout << "c1 = " << c1.get_count() << " "; // вывод
+    cout << "c2 = " << c2.get_count() << endl; // вывод
 
-    c1.inc_count();
-    c2.inc_count();
-    c2.inc_count();
+    c1.inc_count(); // инкрементирование c1
+    c2.inc_count(); // инкрементирование c2
+    c2.inc_count(); // инкрементирование c2
 
-    cout << "c1 = " << c1.get_count() << " ";
-    cout << "c2 = " << c2.get_count() << endl;
+    cout << "c1 = " << c1.get_count() << " "; // вывод
+    cout << "c2 = " << c2.get_count() << endl; // вывод
 
 
 
