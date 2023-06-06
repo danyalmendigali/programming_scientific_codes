@@ -14,7 +14,9 @@ class Counter
 private:
     unsigned int count; // значение счетчика
 public:
-    Counter(): count(0) {} // конструктор
+    Counter(): count(0) {
+        cout << "Конструктор\n";
+    } // конструктор
 
     void inc_count()
     {
