@@ -9,6 +9,7 @@ using namespace std;
 
 //конструкторы, добавляют объекты с помощью функции-члена
 
+
 class Distance
 {
 private:
@@ -46,7 +47,6 @@ void Distance::add_dist(Distance dd1, Distance dd2)
 
     feet += dd1.feet + dd2.feet; // сложение футов
 }
-
 
 int main() {
     cin.tie(0);

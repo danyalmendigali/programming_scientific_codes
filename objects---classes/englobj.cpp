@@ -37,7 +37,6 @@ public:
 
 };
 
-
 int main() {
     cin.tie(0);
     SetConsoleOutputCP(CP_UTF8);
