@@ -21,7 +21,6 @@ public:
 };
 
 
-
 int main() {
     cin.tie(0);
     SetConsoleOutputCP(CP_UTF8);
@@ -38,8 +37,6 @@ int main() {
 
 
 
-
   return 0;
 }
-
 
