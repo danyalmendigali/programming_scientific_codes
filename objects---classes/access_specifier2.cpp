@@ -27,6 +27,15 @@ public:
         cout << m_day << "/" << m_month << "/" << m_year;
     }
 
+    // Обратить внимание на этот дополнительный метод
+    void copyFrom(const DateClass &b)
+    {
+        // Мы имеем прямой доступ к закрытым членам объекта b
+        m_day = b.m_day;
+        m_month = b.m_month;
+        m_year = b.m_year;
+    }
+
 };
 
 
@@ -37,7 +46,11 @@ int main() {
 
     DateClass date;
     date.setDate(2, 3, 2015); // ок, так как setDate() имеет спецификатор доступа public
-    date.print();  // ок, так как print() имеет спецификатор доступа public
+
+
+    DateClass copy;
+    copy.copyFrom(date); // ок, так как copyFrom() имеет спецификатор доступа public
+    copy.print();
 
 
 
@@ -47,5 +60,6 @@ int main() {
 
   return 0;
 }
+
 
 
