@@ -6,7 +6,7 @@ using namespace std;
 #define ll long long
 #define FOR(i, a, b) for(int i = a; i < b; i++)
 
-// Геттеры и Сеттеры
+// Инкапсуляция ООП пример
 
 class Human
 {
@@ -53,22 +53,43 @@ public:
 
 };
 
+class CoffeeGrinder
+{
+private:
+    bool CheckVoltage() // Если вольтаж в норме
+    {
+        return false; // Выводит неправду
+    }
+
+public:
+    void Start()
+    {
+        bool voltageIsNormal = CheckVoltage(); // Вольтаж в норме
+
+        if(voltageIsNormal) {  // Если вольтаж в норме выводит 'VjuHHH!'
+        cout << "VjuHHH!" << endl;
+        }
+
+        else {
+            cout << "Beep Beep" << endl; // Иначе 'Beep Beep'
+        }
+    }
+
+
+};
+
+
 int main() {
     cin.tie();
     SetConsoleOutputCP(CP_UTF8);
     SetConsoleCP(CP_UTF8);
 
-    Point a;
-    a.SetY(11); // Будет выводится 22 так как Сеттер умножил наше значение на два
-    a.SetX(5);
-    a.Print();
+    CoffeeGrinder a;
+    a.Start();
 
-    /*
-    int result = a.GetX();
-    cout << result << endl;
-    */
 
 
    return 0;
 }
+
 
