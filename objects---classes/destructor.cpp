@@ -108,29 +108,47 @@ public:
 
 class MyClass
 {
-    int data;
+private:
+    int* data;
 public:
-    MyClass(int value) // Конструткор
+    MyClass(int size) // Конструткор
     {
-        data = value;
+        data = new int[size];
+
+        FOR(i, 0, size)
+        {
+            data[i] = i;
+        }
+
         cout << "Объект " << data << " Вызвался конструткор" << endl;
     }
 
     ~MyClass() // Деструктор (нельзя передава ть параметры), в классе может быть только один деструктор
     {
+        delete [] data; // Освобождаем память которая была выделена на массива
         cout << "Объект " << data << " Вызвался деструктор" << endl;
     }
 
 };
 
+void Foo()
+{
+    cout << "Foo начало выполнения" << endl;
+    MyClass a(1);
+    cout << "Foo конец выполнения" << endl;
+}
+
 int main() {
+    // Деструктор работает только тогда когда мы выйдем с области видимости функции main()
     cin.tie();
     SetConsoleOutputCP(CP_UTF8);
     SetConsoleCP(CP_UTF8);
 
-    MyClass a(1);
 
-    MyClass (2);
+    Foo();
+
+
+
 
 
 
