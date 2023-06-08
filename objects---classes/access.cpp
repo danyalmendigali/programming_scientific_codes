@@ -6,6 +6,8 @@ using namespace std;
 #define ll long long
 #define FOR(i, a, b) for(int i = a; i < b; i++)
 
+// Методы, определенные в одном классе, могут быть вызваны другими методами этого же класса, независимо от их модификатора доступа.
+
 class Human
 {
 public:
@@ -31,6 +33,7 @@ private:
 
     void PrinY() // Доступна только в этом классе
     {
+        Print
         cout << y << endl;
         cout << "PrinY()" << endl;
     }
