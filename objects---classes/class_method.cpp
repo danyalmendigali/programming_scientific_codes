@@ -9,11 +9,11 @@ using namespace std;
 class Human
 {
 public:
-    int age;
-    int weight;
-    string name;
+    int age; // Поля класса
+    int weight; // Поля класса
+    string name; // Поля класса
 
-    void Print()
+    void Print() // Метод
     {
         cout << "Имя " << name << "\nВес " << weight << "\nВозраст " << age << endl << endl;
     }
@@ -36,17 +36,13 @@ int main() {
     firstHuman.Print();
 
     Human secondHuman; // Так как не присвоили значение экземпляру secondHuman
+    /*
     secondHuman.age = 12;
     secondHuman.name = "Noname";
     secondHuman.weight = 50;
+    */
 
     secondHuman.Print();
-
-
-    int a;
-    int b;
-
-
 
 
 
