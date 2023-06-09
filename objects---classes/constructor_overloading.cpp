@@ -59,7 +59,7 @@ public:
 
     void SetY(int valueY) // Сеттер
     {
-        y = valueY; // Умножил значение на два
+        y = valueY;
     }
 
     int GetX() // Геттер
