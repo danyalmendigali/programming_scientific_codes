@@ -10,7 +10,7 @@ using namespace std;
 
 class MyContainer {
 private:
-    std::vector<int> data;
+    vector<int> data;
 
 public:
     void addValue(int value) {
