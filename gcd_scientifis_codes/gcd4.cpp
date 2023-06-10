@@ -30,7 +30,7 @@ int main() {
 }
 
 
-long gcd4(long a, long b)
+long gcd4(long a, long b) // Алгоритм Евклида (рекурсивный)
 {
     if(a == b)
     {
