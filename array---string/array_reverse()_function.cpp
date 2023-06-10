@@ -24,7 +24,7 @@ int main() {
         cin >> arr[i];
     }
 
-    int size1 = sizeof(arr) / sizeof(arr[0]); // size равно 5
+    int size1 = sizeof(arr) / sizeof(arr[0]);
     reverse(arr, arr + size1);
     cout << endl;
 

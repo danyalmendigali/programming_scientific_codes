@@ -7,7 +7,7 @@ using namespace std;
 #define ll long long
 #define FOR(i, a, b) for(int i = a; i < b; i++)
 
-// accumulate(): Эта функция вычисляет сумму всех элементов массива.
+// count(): Эта функция подсчитывает количество вхождений заданного значения в массиве.
 
 int main() {
     cin.tie();
@@ -25,16 +25,17 @@ int main() {
     }
 
     int size1 = sizeof(arr) / sizeof(arr[0]);
-    int size = sizeof(arr) / sizeof(arr[0]);
-    int sum = accumulate(arr, arr + size, 0); // Начальная сумма = 0
+    int count1 = count(arr, arr + size1, 2);
     cout << endl;
 
-    cout << "Сумма: " << sum;
+    cout << "Количество вхождений двоек: " << count1 << endl;
+
 
 
 
 
    return 0;
 }
+
 
 
