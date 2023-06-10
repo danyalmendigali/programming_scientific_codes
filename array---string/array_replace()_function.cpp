@@ -24,6 +24,7 @@ int main() {
         cin >> arr[i];
     }
 
+
     int size1 = sizeof(arr) / sizeof(arr[0]);
     replace(arr, arr + size1, 3, 0); // значение 3 заменено на 0
     cout << endl;
