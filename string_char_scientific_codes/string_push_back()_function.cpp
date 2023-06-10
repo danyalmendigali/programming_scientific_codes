@@ -6,7 +6,7 @@ using namespace std;
 #define ar array
 #define FOR(i, a, b) for(int i = a, i < b; i++)
 
-// clear(): Очищает содержимое строки.
+//push_back(): Добавляет строку или символы в конец текущей строки.
 
 int main() {
     cin.tie();
