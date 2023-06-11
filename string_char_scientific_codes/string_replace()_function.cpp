@@ -16,7 +16,7 @@ int main() {
     string s;
     cout << "Введите строку: ";
     getline(cin, s);
-    s.replace(2, 3, "Hello this is function"); //  заменяет диапазон символов, начиная с позиции 2 и длиной 3 символов, на строку "Hello this is function"
+    s.replace(2, 3, "Hello this is function"); //  заменяет диапазон символов, начиная с позиции 7 и длиной 5 символов, на строку "everyone".
     cout << "Полученна строка: " << s << endl;
 
 
