@@ -6,7 +6,7 @@ using namespace std;
 #define ar array
 #define FOR(i, a, b) for(int i = a, i < b; i++)
 
-// Поиск и извлечение всех email-адресов из текс
+// Поиск и извлечение всех email-адресов из текста
 
 int main()
 {
