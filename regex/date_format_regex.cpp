@@ -9,7 +9,6 @@ using namespace std;
 // Проверка формата даты в виде "гггг-мм-дд":
 
 
-
 int main() {
     cin.tie(0);
     SetConsoleOutputCP(CP_UTF8);
