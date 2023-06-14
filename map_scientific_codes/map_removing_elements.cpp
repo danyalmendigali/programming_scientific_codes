@@ -6,7 +6,7 @@ using namespace std;
 #define ar array
 #define FOR(i, a, b) for(int i = a; i < b; i++)
 
-// Поиск элементов в map
+// Удаление элементов из map:
 
 int main() {
     cin.tie(0);
@@ -14,17 +14,16 @@ int main() {
     SetConsoleCP(CP_UTF8);
 
     map <string, int> scores;
-
     // Вставка элементов
     scores["Alice"] = 90;
     scores["Bob"] = 80;
     scores["Charlie"] = 95;
 
-    // Поиск элемента
+    // Удаление элемента
     string name = "Bob";
-    auto it = scores.find(name);
-    if (it != scores.end()) {
-        cout << "Score of " << name << ": " << it->second << endl;
+    int numErased = scores.erase(name);
+    if (numErased > 0) {
+        cout << "Successfully erased " << name << endl;
     } else {
         cout << name << " not found!" << endl;
     }
