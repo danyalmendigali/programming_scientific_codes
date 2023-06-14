@@ -2,7 +2,7 @@
 #include <windows.h>
 using namespace std;
 
-#define ll long longas
+#define ll long long
 #define ar array
 #define FOR(i, a, b) for(int i = a; i < b; i++)
 

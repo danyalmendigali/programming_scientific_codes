@@ -6,24 +6,22 @@ using namespace std;
 #define ar array
 #define FOR(i, a, b) for(int i = a; i < b; i++)
 
-// Итерация по элементам map:
+// Получение количества элементов в map:
 
 int main() {
     cin.tie(0);
     SetConsoleOutputCP(CP_UTF8);
     SetConsoleCP(CP_UTF8);
 
-    map <string, int> scores;
+    map<string, int> scores;
 
     // Вставка элементов
     scores["Alice"] = 90;
     scores["Bob"] = 80;
     scores["Charlie"] = 95;
 
-    // Итерация по элементам
-    for (const auto& pair : scores) {
-        cout << "Name: " << pair.first << ", Score: " << pair.second << endl;
-    }
+    // Получение количества элементов
+    cout << "Number of elements in the map: " << scores.size() << endl;
 
 
 
