@@ -20,7 +20,7 @@ int main() {
     scores["Bob"] = 80;
     scores["Charlie"] = 95;
 
-    // Обход std::map с помощью диапазона for
+    // Обход map с помощью диапазона for
     for (const auto& pair : scores) {
         cout << "Name: " << pair.first << ", Score: " << pair.second << endl;
     }
