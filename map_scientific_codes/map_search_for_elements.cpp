@@ -6,22 +6,27 @@ using namespace std;
 #define ar array
 #define FOR(i, a, b) for(int i = a; i < b; i++)
 
-// Вставка элементов в std::map
+// Поиск элементов в std::map
 
 int main() {
     cin.tie(0);
     SetConsoleOutputCP(CP_UTF8);
     SetConsoleCP(CP_UTF8);
-    map<string, int> scores;
+
+    map <string, int> scores;
 
     // Вставка элементов
     scores["Alice"] = 90;
     scores["Bob"] = 80;
     scores["Charlie"] = 95;
 
-    // Вывод значений
-    for (const auto& pair : scores) {
-        cout << "Name: " << pair.first << ", Score: " << pair.second << endl;
+    // Поиск элемента
+    string name = "Bob";
+    auto it = scores.find(name);
+    if (it != scores.end()) {
+        cout << "Score of " << name << ": " << it->second << endl;
+    } else {
+        cout << name << " not found!" << endl;
     }
 
 
