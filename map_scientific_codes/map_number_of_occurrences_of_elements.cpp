@@ -6,7 +6,7 @@ using namespace std;
 #define ar array
 #define FOR(i, a, b) for(int i = a; i < b; i++)
 
-// Объединение двух map:
+// Использование map для подсчета количества вхождений элементов:
 
 int main() {
     cin.tie(0);
@@ -35,4 +35,3 @@ int main() {
 
   return 0;
 }
-
