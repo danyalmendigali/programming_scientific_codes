@@ -6,7 +6,7 @@ using namespace std;
 #define ll long long
 #define FOR(i, a, b) for(int i = a; i < b; i++)
 
-// Конструктор копирования
+// Перегрузка оператора равенства == и не равно !=. Перегрузка логических операторов сравнения.
 
 class Human
 {
@@ -15,6 +15,11 @@ public:
     int age;
     int weight;
     string name;
+
+    void Print()
+    {
+        cout << "Имя " << name << "\nВес " << weight << "\nВозраст " << age << endl << endl;
+    }
 
 };
 
@@ -40,6 +45,17 @@ public:
         y = valueY;
         cout << this << " constructor" << endl; // Константный указатель на адрес в памяти
     }
+
+    bool operator ==(const Point & other) // Перегрузка оператора == (Всегда должен быть константным)
+    {
+       return this -> x == other.x && this -> y == other.y;
+    }
+
+    bool operator !=(const Point & other) // Перегрузка оператора != (Всегда должен быть константным)   (Просто поменять знак = на !=)
+    {
+       return !(this -> x == other.x && this -> y == other.y); // Ставим перед скобкой знак инвертировать !
+    }
+
 
 
     int GetY() // Геттер
@@ -75,6 +91,8 @@ public:
 
 class CoffeeGrinder
 {
+
+
 
 private:
     bool CheckVoltage() // Если вольтаж в норме
@@ -140,18 +158,6 @@ private:
     int Size;
 };
 
-void Foo(MyClass value) // Здесь взялся лишний объект
-{
-    cout << "Вывелась функция Foo " << endl;
-}
-
-MyClass Foo2()
-{
-    cout << "Вывелась функция Foo_2 " << endl;
-    MyClass temp(2);
-
-    return temp;
-}
 
 
 
@@ -161,12 +167,12 @@ int main() {
     SetConsoleOutputCP(CP_UTF8);
     SetConsoleCP(CP_UTF8);
 
-    MyClass a(10);
+    Point a(5, 1);
+    Point b(77, 12);
 
-    MyClass b(a);
 
+    bool result = a != b;
 
-    //Foo(a);
 
 
 
@@ -176,4 +182,5 @@ int main() {
 
    return 0;
 }
+
 
