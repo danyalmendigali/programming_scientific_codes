@@ -8,7 +8,6 @@ using namespace std;
 
 // Извлечение всех элементов очереди с использованием диапазонного цикла:
 
-
 int main() {
     cin.tie();
     SetConsoleOutputCP(CP_UTF8);
@@ -22,7 +21,6 @@ int main() {
     myQueue.push(30);
 
     // Извлечение всех элементов очереди с использованием диапазонного цикла
-
     for (const auto& element : myQueue) {
         cout << element << " ";
     }
