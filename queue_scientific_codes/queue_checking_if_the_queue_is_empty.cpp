@@ -13,7 +13,8 @@ int main() {
     SetConsoleOutputCP(CP_UTF8);
     SetConsoleCP(CP_UTF8);
 
-    queue <int> myQueue;
+
+    queue<int> myQueue;
 
     // Проверка, является ли очередь пустой
     if (myQueue.empty()) {
