@@ -8,7 +8,6 @@ using namespace std;
 
 // Определение наибольшего и наименьшего элементов в очереди:
 
-
 int main() {
     cin.tie();
     SetConsoleOutputCP(CP_UTF8);
