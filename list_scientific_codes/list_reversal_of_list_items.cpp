@@ -6,7 +6,7 @@ using namespace std;
 #define ll long long
 #define FOR(i, a, b) for(int i = a; i < b; i++)
 
-// Итерация по списку с использованием итераторов:
+// Разворот элементов списка:
 
 int main() {
     cin.tie();
@@ -15,10 +15,16 @@ int main() {
 
     list <int> myList = {1, 2, 3, 4, 5, 6};
 
-    // Итерация по списку с использованием итераторов
-    for(auto it = myList.begin(); it != myList.end(); ++it) {
-        cout *it << " ";
+
+    // Разворот элементов списка
+    myList.reverse();
+
+
+    // Вывод элементов списка
+    for(const auto& element : myList) {
+        cout << element << " ";
     }
 
    return 0;
 }
+
