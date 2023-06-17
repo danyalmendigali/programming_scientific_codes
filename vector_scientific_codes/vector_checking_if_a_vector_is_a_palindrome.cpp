@@ -28,6 +28,7 @@ int main() {
     cout << "Вектор 1: " << isPalindrome(numbers1) << endl;
     cout << "Вектор 2: " << isPalindrome(numbers2) << endl;
 
+
    return 0;
 }
 
