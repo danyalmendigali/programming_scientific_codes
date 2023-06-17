@@ -6,7 +6,7 @@ using namespace std;
 #define ll long long
 #define FOR(i, a, b) for(int i = a; i < b; i++)
 
-// Получение подвектора из существующего вектора:
+// Переворот порядка элементов вектора:
 
 int main() {
     cin.tie();
@@ -15,14 +15,14 @@ int main() {
 
     vector <int> numbers = {1, 2, 3, 4, 5};
 
-    vector <int> subVector(numbers.begin() + 2, numbers.begin() + 4);
+    // Переворот порядка элементов вектора
+    reverse(numbers.begin(), numbers.end());
 
-    for(int number : subVector) {
+    // Вывод элементов вектора после переворота
+    for(int number : numbers) {
         cout << number << " ";
     }
     cout << endl;
-
-
 
 
    return 0;
