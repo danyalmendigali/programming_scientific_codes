@@ -17,11 +17,13 @@ int main() {
     stack <int>  myStack;
 
 
+    // Добавление элементов в стек
     myStack.push(10);
     myStack.push(20);
     myStack.push(30);
 
 
+    // Извлечение и вывод элементов стека
     while(!myStack.empty()) {
         cout << myStack.top() << " ";
         myStack.pop();
