@@ -14,7 +14,7 @@ int main() {
     SetConsoleOutputCP(CP_UTF8);
     SetConsoleCP(CP_UTF8);
 
-    std::vector<int> numbers = {1, 2, 3, 4, 5};
+    vector<int> numbers = {1, 2, 3, 4, 5};
 
     // Перемешивание элементов вектора
     random_device rd;
