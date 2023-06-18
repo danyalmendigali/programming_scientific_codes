@@ -7,7 +7,7 @@ using namespace std;
 #define ll long long
 #define FOR(i, a, b) for(int i = a; i < b; i++)
 
-// Переворот строки с использованием указателей:
+// Поиск максимального элемента в массиве с использованием указателей
 
 int findMax(const int* arr, int size) {
     if (arr == nullptr || size == 0)
