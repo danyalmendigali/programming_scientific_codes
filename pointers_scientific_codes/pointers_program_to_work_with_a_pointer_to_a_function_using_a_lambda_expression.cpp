@@ -9,7 +9,6 @@ using namespace std;
 // Программа для работы с двумерным динамическим массивом с использованием указателей:
 
 
-
 int main() {
     cin.tie();
     SetConsoleOutputCP(CP_UTF8);
