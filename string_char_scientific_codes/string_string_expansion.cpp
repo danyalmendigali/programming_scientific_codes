@@ -19,6 +19,5 @@ int main() {
     cout << "Result: " << str << endl;
 
 
-
    return 0;
 }
