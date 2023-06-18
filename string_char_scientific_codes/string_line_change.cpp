@@ -6,7 +6,7 @@ using namespace std;
 #define ll long long
 #define FOR(i, a, b) for(int i = a; i < b; i++)
 
-//  Изменение строки:
+// Изменение строки:
 
 int main() {
     cin.tie();
