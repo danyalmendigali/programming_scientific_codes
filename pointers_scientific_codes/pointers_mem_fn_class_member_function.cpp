@@ -6,7 +6,7 @@ using namespace std;
 #define ll long long
 #define FOR(i, a, b) for(int i = a; i < b; i++)
 
-// Программа для работы с указателями на функции-члены класса:
+// Программа для работы с указателем на функцию-член класса с использованием mem_fn:
 
 class MyClass {
 public:
@@ -23,12 +23,10 @@ int main() {
 
     MyClass obj;
 
-    void (MyClass::*ptr)() = &MyClass::printMessage; // Указатель на функцию-член класса
+    auto ptr = mem_fn(&MyClass::printMessage); // Указатель на функцию-член класса
 
-    (obj.*ptr)(); // Вызов функции-члена класса через указатель
+    ptr(obj); // Вызов функции-члена класса через указатель
+
 
    return 0;
 }
-
-
-
