@@ -8,14 +8,6 @@ using namespace std;
 
 // Программа для работы с двумерным динамическим массивом с использованием указателей:
 
-int add(int a, int b) {
-    return a + b;
-}
-
-int subtract(int a, int b) {
-    return a - b;
-}
-
 
 int main() {
     cin.tie();
