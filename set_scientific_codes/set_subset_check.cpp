@@ -24,9 +24,9 @@ int main() {
     set <int> set2 = {1, 2, 3, 4, 5};
 
     if (isSubset(set1, set2)) {
-        cout << "set1 является подмножеством set2" << std::endl
+        cout << "set1 является подмножеством set2" << endl
     } else {
-        cout << "set1 не является подмножеством set2" << std::endl;
+        cout << "set1 не является подмножеством set2" << endl;
     }
 
 
