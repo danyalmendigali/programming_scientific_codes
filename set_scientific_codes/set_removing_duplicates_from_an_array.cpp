@@ -8,7 +8,7 @@ using namespace std;
 #define ll long long
 #define FOR(i, a, b) for(int i = a; i < b; i++)
 
-// ПУдаление дубликатов из массива:
+// Удаление дубликатов из массива:
 
 vector<int> removeDuplicates(const vector<int>& vec) {
     set <int> uniqueElements(vec.begin(), vec.end());
