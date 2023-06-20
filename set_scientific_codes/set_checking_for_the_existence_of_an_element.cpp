@@ -10,8 +10,8 @@ using namespace std;
 
 // Подсчет уникальных элементов в set:
 
-int countUniqueElements(const set <int>& set) {
-    return set.size();
+bool containsElement(const set <int>& set, int element) {
+    return set.find(element) != set.end();
 }
 
 
@@ -20,11 +20,15 @@ int main() {
     SetConsoleOutputCP(CP_UTF8);
     SetConsoleCP(CP_UTF8);
 
-    set< int> set = {1, 2, 3, 2, 4, 5, 3};
+    set <int> set = {1, 2, 3, 4, 5};
 
-    int uniqueCount = countUniqueElements(set);
+    int element = 3;
 
-    cout << "Количество уникальных элементов: " << uniqueCount << endl;
+    if (containsElement(set, element)) {
+        cout << "Сет содержит элемент" << endl;
+    } else {
+        cout << "Сет не содержит элемент" << endl;
+    }
 
 
    return 0;
