@@ -51,7 +51,6 @@ vector <Point> findKClosestPoints(const vector<Point>& points, int k) {
 }
 
 
-
 int main() {
     cin.tie();
     SetConsoleOutputCP(CP_UTF8);
@@ -77,3 +76,4 @@ int main() {
     return 0;
 
 }
+
