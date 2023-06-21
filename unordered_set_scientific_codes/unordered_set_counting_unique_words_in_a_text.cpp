@@ -8,7 +8,7 @@ using namespace std;
 #define ll long long
 #define FOR(i, a, b) for(int i = a; i < b; i++)
 
-// Подсчет уникальных слов в тексте с использованием std::unordered_set:
+// Подсчет уникальных слов в тексте с использованием unordered_set:
 
 int countUniqueWords(const string& text) {
     unordered_set <string> uniqueWords;
