@@ -47,6 +47,9 @@ int main() {
     }
     cout << endl;
 
-ti
+
+    return 0;
+
+
 }
 
