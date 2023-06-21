@@ -52,7 +52,6 @@ vector <string> findTopKFrequentWords(const string& text, int k) {
 }
 
 
-
 int main() {
     cin.tie();
     SetConsoleOutputCP(CP_UTF8);
