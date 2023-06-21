@@ -35,7 +35,9 @@ int main() {
 
     int kthSmallest = findKthSmallestElement(nums, k);
 
-    cout << "K-й наименьший элемент: " << kthSmallest << std::endl;
+    cout << "K-й наименьший элемент: " << kthSmallest << endl;
+
+    return 0;
 
 
 }
