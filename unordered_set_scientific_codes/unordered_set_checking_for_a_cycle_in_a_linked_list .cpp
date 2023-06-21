@@ -7,7 +7,7 @@ using namespace std;
 #define ll long long
 #define FOR(i, a, b) for(int i = a; i < b; i++)
 
-// Проверка на наличие цикла в связанном списке с использованием std::unordered_set:
+// Проверка на наличие цикла в связанном списке с использованием unordered_set:
 
 
 struct ListNode {
