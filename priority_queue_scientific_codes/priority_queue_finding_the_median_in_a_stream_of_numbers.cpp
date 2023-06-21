@@ -12,6 +12,7 @@ using namespace std;
 // Поиск медианы в потоке чисел с использованием priority_queue:
 
 
+
 class MedianFinder {
 private:
     priority_queue <int> maxHeap; // хранит меньшую половину чисел
