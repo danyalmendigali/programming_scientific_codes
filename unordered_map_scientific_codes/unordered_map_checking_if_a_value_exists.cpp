@@ -20,7 +20,6 @@ bool containsValue(const unordered_map <int, string>& map, const string& value) 
 }
 
 
-
 int main() {
     cin.tie();
     SetConsoleOutputCP(CP_UTF8);
