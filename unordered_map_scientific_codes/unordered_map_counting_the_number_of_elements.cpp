@@ -7,13 +7,11 @@ using namespace std;
 #define ll long long
 #define FOR(i, a, b) for(int i = a; i < b; i++)
 
-// Итерация по unordered_map:
+// Подсчет количества элементов в unordered_map:
 
 
-void iterateMap(const unordered_map <int, string>& map) {
-    for (const auto& pair : map) {
-        cout << "Ключ: " << pair.first << ", Значение: " << pair.second << endl;
-    }
+void countElements(const unordered_map <int, string>& map) {
+    cout << "Количество элементов в map: " << map.size() << endl;
 }
 
 
@@ -27,8 +25,9 @@ int main() {
     map[2] = "banana";
     map[3] = "orange";
 
-    iterateMap(map);
+    countElements(map);
 
 
    return 0;
 }
+
