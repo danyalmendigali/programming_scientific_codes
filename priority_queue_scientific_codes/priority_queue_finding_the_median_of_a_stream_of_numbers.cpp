@@ -52,7 +52,6 @@ double findMedianInStream() {
 }
 
 
-
 int main() {
     cin.tie();
     SetConsoleOutputCP(CP_UTF8);
