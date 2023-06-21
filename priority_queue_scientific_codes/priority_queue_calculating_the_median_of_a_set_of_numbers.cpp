@@ -51,5 +51,8 @@ int main() {
     cout << "Медиана: " << median << endl;
 
 
+    return 0;
+
+
 }
 
