@@ -25,7 +25,6 @@ int findKthSmallestElement(const vector<int>& nums, int k) {
     return pq.top();
 }
 
-
 int main() {
     cin.tie();
     SetConsoleOutputCP(CP_UTF8);
@@ -42,4 +41,3 @@ int main() {
     return 0;
 
 }
-
