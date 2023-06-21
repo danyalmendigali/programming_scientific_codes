@@ -63,7 +63,6 @@ void sortFilesBySize(const string& inputFileName, const string& outputFileName) 
 }
 
 
-
 int main() {
     cin.tie();
     SetConsoleOutputCP(CP_UTF8);
