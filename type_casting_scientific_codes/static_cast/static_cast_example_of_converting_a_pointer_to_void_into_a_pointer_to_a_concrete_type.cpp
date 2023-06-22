@@ -10,6 +10,7 @@ using namespace std;
 #define FOR(i, a, b) for(int i = a; i < b; i++)
 
 // Пример преобразования указателя на void в указатель на конкретный тип:
+
 int main() {
     cin.tie();
     SetConsoleOutputCP(CP_UTF8);
