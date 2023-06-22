@@ -8,7 +8,7 @@ using namespace std;
 #define ll long long
 #define FOR(i, a, b) for(int i = a; i < b; i++)
 
-// Работа с объектами разных типов
+// Преобразование указателя на объект базового класса в указатель на объект производного класса
 
 class Base {
 public:
@@ -16,7 +16,6 @@ public:
         cout << "Это объект класса Base." << endl;
     }
 };
-
 
 class Derived : public Base {
 public:
@@ -36,15 +35,12 @@ int main() {
     Derived derived;
 
     Base* basePtr = &base;
-    Derived* derivedPtr = &derived;
+    Derived* derivedPtr = reinterpret_cast<Derived*>(basePtr);
 
-    basePtr->print();
     derivedPtr->print();
-
-    basePtr = reinterpret_cast<Base*>(derivedPtr);
-    basePtr->print();
 
 
    return 0;
 }
+
 
