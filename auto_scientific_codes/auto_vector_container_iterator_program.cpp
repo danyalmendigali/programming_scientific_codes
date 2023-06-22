@@ -8,25 +8,26 @@ using namespace std;
 #define ll long long
 #define FOR(i, a, b) for(int i = a; i < b; i++)
 
-// Программа для работы с контейнером list:
+// Программа для работы с итераторами контейнера vector:
 
 int main() {
     cin.tie();
     SetConsoleOutputCP(CP_UTF8);
     SetConsoleCP(CP_UTF8);
 
-    list<int> numbers = {2, 4, 6, 8, 10};
+    vector<int> numbers = {1, 2, 3, 4, 5};
 
     // Использование auto для определения типа итераторов iter и endIter
     auto iter = numbers.begin();
     auto endIter = numbers.end();
 
-    cout << "Элементы списка: ";
+    cout << "Элементы вектора: ";
     while (iter != endIter) {
         cout << *iter << " ";
         ++iter;
     }
     cout << endl;
+
 
 
    return 0;
