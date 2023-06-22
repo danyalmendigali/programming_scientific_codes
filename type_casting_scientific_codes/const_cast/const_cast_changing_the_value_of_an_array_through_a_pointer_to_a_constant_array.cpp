@@ -22,7 +22,7 @@ int main() {
     int* mutableArrayPtr = const_cast<int*>(constArrayPtr);
     mutableArrayPtr[2] = 10;
 
-    cout << "Измененное значение элемента массива: " << numbers[2] << endl;
+    cout << "Измененное значение элемента массива: " << numbers[2] << "\n";
 
 
    return 0;
