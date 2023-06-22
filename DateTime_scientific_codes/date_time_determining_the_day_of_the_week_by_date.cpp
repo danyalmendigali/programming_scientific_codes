@@ -25,7 +25,7 @@ int main() {
     chrono::system_clock::time_point timePoint = chrono::system_clock::from_time_t(mktime(&timeStruct));
 
     tm* tm = localtime(&currentTime);
-    int dayOfWeek = tm->tm_wday;
+    int dayOfWeek = tm -> tm_wday;
 
     cout << "День недели: " << dayOfWeek << endl;
 
