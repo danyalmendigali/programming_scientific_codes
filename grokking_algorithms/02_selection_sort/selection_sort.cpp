@@ -7,24 +7,33 @@ using namespace std;
 #define ll long long
 #define FOR(i, a, b) for(int i = a; i < b; i++)
 
-int findSmallest(int arr[], int size_array);
+vector <int> selectionSort(vector <int> arr);
+int findSmallest(const vector <int>& arr);
+
 
 int main() {
     cin.tie();
     SetConsoleOutputCP(CP_UTF8);
     SetConsoleCP(CP_UTF8);
 
-    int size_array;
-    cout << "Введите размер массива: ";
-    cin >> size_array;
-    int arr[size_array];
-    for(int i = -1; i < size_array - 1; i++)
+    int size_vector;
+    cout << "Введите размер вектора: ";
+    cin >> size_vector;
+    vector <int> arr;
+    for(int i = 0; i < size_vector; i++)
     {
+        int num;
         cout << "Введите элемент #" << i + 1 << ": ";
-        cin >> arr[i];
+        cin >> num;
+        arr.push_back(num);
     }
 
-    cout << findSmallest(arr, size_array);
+    vector<int> sortedArr = selectionSort(arr);
+    for (int i = 0; i < sortedArr.size(); i++) {
+        cout << sortedArr[i] << " ";
+    }
+
+
 
 
 
@@ -32,20 +41,33 @@ int main() {
 }
 
 
-int findSmallest(int arr[], int size_array) {
-   int smallest = arr[0];
+int findSmallest(const vector<int>& arr) {
    int smallest_index = 0;
 
-   for(int i = 0; i < size_array; i++)
+   for(int i = 1; i < arr.size(); i++)
    {
-       if(arr[i] < smallest)
+       if(arr[i] < arr[smallest_index])
        {
-           smallest = arr[i];
            smallest_index = i;
        }
    }
 
-   return smallest_index + 1;
+   return smallest_index;
 
 
 }
+
+vector <int> selectionSort(vector <int> arr)
+{
+    vector <int> newArr;
+
+    while(!arr.empty()) {
+        int smallest_index = findSmallest(arr);
+        newArr.push_back(arr[smallest_index]);
+        arr.erase(arr.begin() + smallest_index);
+    }
+
+    return newArr;
+}
+
+
