@@ -3,18 +3,16 @@
 #include <iterator>
 using namespace std;
 
-#define ar array
-#define ll long long
-#define FOR(i, a, b) for(int i = a; i < b; i++)
+// Тип данных для кеша.
+// Это делается для того, чтобы не писать каждый раз полное имя типа, а использовать краткое имя Cache при объявлении объектов хеш-таблицы.
 #define Cache unordered_map<string, int>
 
-// Тип данных для кеша
-//  Это делается для того, чтобы не писать каждый раз полное имя типа, а использовать краткое имя Cache при объявлении объектов хеш-таблицы.
-
-
-
 // Функция добавления элемента в кеш
-void addToCache(Cache& cache, const string& key, int value)
+
+// Cache& cache, const string& (Почему используется знак &)
+// Обозначают ссылки на объекты, которые передаются в функцию. В C++, ссылки позволяют работать с оригинальными объектами,
+// а не их копиями, что может быть эффективнее и предотвращает лишние копирования данных
+void addToCache(Cache& cache, const string& key, int value) // Cache& cache заменяет надпись unordered_map<string, int>& cache
 {
     cache[key] = value;
 }
@@ -47,7 +45,7 @@ void removeFromCache(Cache& cache, const string& key)
 // Функция проверки, содержит ли кеш элемент с заданным ключом
 bool contains(const Cache& cache, const string& key)
 {
-    return cache.find(key) != cache.end();
+    return cache.find(key) != cache.end(); // True если элемент найден || False если элемент не найден
 }
 
 int main() {
