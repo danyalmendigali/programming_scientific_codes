@@ -7,62 +7,61 @@ using namespace std;
 #define ll long long
 #define FOR(i, a, b) for(int i = a; i < b; i++)
 
-// Поиск кратчайшего пути в невзвешенном графе
+// Реализация BFS
 
-// Условие задания
-// Дан невзвешенный неориентированный граф и его стартовая и конечная вершины.
-// Ваша задача - найти кратчайший путь между стартовой и конечной вершинами с помощью обхода в ширину.
-
-void bfsMatrix(vector<vector<int>>& matrix, int startPoint, int endPoint)
+void bfsMatrix(vector<vector<int>> &matrix, int startMatrix, int endMatrix)
 {
-    int sizeVector = matrix.size();
-    vector <bool> visited(sizeVector, false);
-
-    // Создаем вектор parent, который будет хранить информацию о предыдущей вершине на кратчайшем пути от стартовой вершины
-    // к каждой другой вершине. Изначально все элементы этого вектора устанавливаются в -1, что означает, что пути еще нет
-    vector<int> parent(sizeVector, -1);
-
+    int size_matrix = matrix.size();
+    vector <bool> visited(size_matrix, 0);
+    vector <int> prog(size_matrix, -1);
     queue <int> q;
-    q.push(startPoint);
-    visited[startPoint] = true;
 
+    q.push(startMatrix);
+    visited[startMatrix] = true;
 
     while(!q.empty())
     {
-        int numberqueue = q.front();
+        int elementFront = q.front();
         q.pop();
-
-        cout << "Посещена вершина: " << numberqueue << "\n";
-
-        for(int i = 0; i < sizeVector; i++)
+        cout << "Посещена вершина: " << elementFront << "\n";
+        for(int i = 0; i < size_matrix; i++)
         {
-            if(matrix[numberqueue][i] == 1 && !visited[i])
+            if(matrix[elementFront][i] == 1 && !visited[i])
             {
                 q.push(i);
                 visited[i] = true;
 
-                // Записываем номер вершины numberqueue в parent[i], чтобы отслеживать путь от startPoint к вершине i.
-                parent[i] = numberqueue;
+                // Это поможет нам позже восстановить кратчайший путь от стартовой вершины до каждой вершины
+                prog[i] = elementFront;
             }
         }
     }
 
-    // Построение и вывод кратчайшего пути
-    vector<int> shortestPath; // Будет хранить вершины на кратчайшем пути от startPoint до endPoint. Начально этот вектор пуст
+    // Это объявление вектора elem, который будет содержать вершины кратчайшего пути в обратном порядке.
+    // Здесь мы будем добавлять вершины вектора elem от endMatrix до startMatrix.
+    vector <int> elem;
 
-    // Запускается цикл, который начинается с вершины endPoint и продолжается до тех пор, пока не достигнем вершины с номером -1
-    for (int v = endPoint; v != -1; v = parent[v]) {
-        shortestPath.push_back(v);
+
+    // Это цикл, который начинается с вершины endMatrix и продолжается до тех пор, пока не достигнем вершины с номером -1. Внутри цикла мы
+    // обновляем значение i на prog[i], что означает переход к предыдущей вершине в пути. Это сделано для обратного прохода от конечной вершины к начальной.
+    for(int i = endMatrix; i != -1; i = prog[i])
+    {
+        // Внутри цикла мы добавляем текущую вершину i в вектор elem. Таким образом, вектор elem будет содержать вершины кратчайшего пути в обратном порядке
+        elem.push_back(i);
     }
 
     cout << "Кратчайший путь: ";
 
-    // Запускается цикл, который начинается с последнего элемента вектора shortestPath и продолжается до первого элемента.
-    for (int i = shortestPath.size() - 1; i >= 0; i--) {
-        cout << shortestPath[i] << " ";
+    // Это цикл, который начинается с последнего элемента вектора elem (конечная вершина пути) и продолжается до первого элемента
+    // (начальная вершина пути). Здесь мы выводим вершины пути в правильном порядке.
+    for(int i = elem.size() - 1; i >= 0; i--)
+    {
+        cout << elem[i] << " ";
     }
     cout << "\n";
+
 }
+
 
 int main() {
     cin.tie();
@@ -93,5 +92,10 @@ int main() {
 
     bfsMatrix(matrixBFS, startpoint, endpoint);
 
+
+
+
     return 0;
 }
+
+
