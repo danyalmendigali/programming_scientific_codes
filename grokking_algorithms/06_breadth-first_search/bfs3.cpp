@@ -13,6 +13,9 @@ void bfsMatrix(vector<vector<int>> &matrix, int startMatrix, int endMatrix)
 {
     int size_matrix = matrix.size();
     vector <bool> visited(size_matrix, 0);
+
+    // Создается вектор prog, инициализированный значением -1. Этот вектор будет использоваться для отслеживания, из какой вершины мы
+    // пришли в каждую другую вершину при построении кратчайшего пути.
     vector <int> prog(size_matrix, -1);
     queue <int> q;
 

@@ -53,7 +53,6 @@ int main() {
     cout << "Введите матрицу рамером: " << sizeMyMatrixBFS << "*" << sizeMyMatrixBFS << "\n";
     for(int i = 0; i < sizeMyMatrixBFS; i++)
     {
-        myMatrixBFS[i].resize(sizeMyMatrixBFS);
         for(int j = 0; j < sizeMyMatrixBFS; j++)
         {
             cin >> myMatrixBFS[i][j];
