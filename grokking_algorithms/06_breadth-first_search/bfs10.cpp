@@ -8,9 +8,9 @@ using namespace std;
 #define FOR(i, a, b) for(int i = a; i < b; i++)
 #define VectorVector vector<vector<int>>
 
-void bfs(VectorVector &myMatrix, int startPoint,  vector<int> &component)
+void bfs(VectorVector &matrix, int startPoint,  vector<int> &component)
 {
-    int size_matrix = myMatrix.size();
+    int size_matrix = matrix.size();
     vector <bool> visited(size_matrix, 0);
 
     queue <int> q;
@@ -25,7 +25,7 @@ void bfs(VectorVector &myMatrix, int startPoint,  vector<int> &component)
         cout << "Посещена вершина: " << numfront << "\n";
         for(int i = 0; i < size_matrix; i++)
         {
-            if(myMatrix[numfront][i] == 1 && !visited[i])
+            if(matrix[numfront][i] == 1 && !visited[i])
             {
                 q.push(i);
                 visited[i] = true;
