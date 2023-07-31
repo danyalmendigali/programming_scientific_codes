@@ -12,46 +12,32 @@ using namespace std;
 // Реализация алгоритма обхода в ширину (BFS) для поиска компонент связности в неориентированном графе
 
 
-// myMatrix: ссылку на двумерный вектор (матрицу смежности) представляющий граф.
-// startPoint: вершину, с которой начинается обход в ширину.
-// component: ссылку на вектор, в который будут добавлены вершины, принадлежащие компоненте связности.
-
 void bfs(VectorVector &myMatrixComponentBFS, int startPointInMyMatrixComponent, vector<int> &componentInMyMatrixComponentBFS)
 {
-    // size_matrix: размер матрицы смежности (число вершин в графе).
     int sizeMyMatrixComponentBFS = myMatrixComponentBFS.size();
-
-    // visited: вектор булевых значений, используемый для отслеживания посещенных вершин. Изначально все вершины помечаются как не посещенные.
     vector <bool> visitedInMyMatrixComponentBFS(sizeMyMatrixComponentBFS, 0);
-
-    // q: очередь, используемая для выполнения обхода в ширину. В нее помещается startPoint, а соответствующая вершина помечается как посещенная.
     queue <int> queueInMyMatrixComponentBFS;
 
     queueInMyMatrixComponentBFS.push(startPointInMyMatrixComponent);
     visitedInMyMatrixComponentBFS[startPointInMyMatrixComponent] = true;
 
-    while (!queueInMyMatrixComponentBFS.empty()) // Пока очередь не пуста цикл выполняется
+    while (!queueInMyMatrixComponentBFS.empty())
     {
-        // На каждой итерации извлекается вершина numfront из очереди q (с помощью q.front() и q.pop())
         int numFrontInMyMatrixComponentBFS = queueInMyMatrixComponentBFS.front();
         queueInMyMatrixComponentBFS.pop();
 
-        // Выводится сообщение о том, что данная вершина посещена.
         cout << "Посещена вершина: " << numFrontInMyMatrixComponentBFS << "\n";
 
-        // Проход по всем вершинам графа (представленным матрицей смежности)
         for (int i = 0; i < sizeMyMatrixComponentBFS; i++)
         {
-            // Если текущая вершина i смежна с numfront (то есть имеет ребро с numfront) и при этом она еще не была посещена (!visited[i]
             if (myMatrixComponentBFS[numFrontInMyMatrixComponentBFS][i] == 1 && !visitedInMyMatrixComponentBFS[i])
             {
-                queueInMyMatrixComponentBFS.push(i); // Добавляется в очередь
-                visitedInMyMatrixComponentBFS[i] = true; // Помечается как посещенная.
+                queueInMyMatrixComponentBFS.push(i);
+                visitedInMyMatrixComponentBFS[i] = true;
             }
         }
     }
 
-    // По завершении обхода в ширину, все вершины, которые были посещены, добавляются в вектор component, который представляет компоненту связности.
     for (int i = 0; i < sizeMyMatrixComponentBFS; i++)
     {
         if (visitedInMyMatrixComponentBFS[i])
