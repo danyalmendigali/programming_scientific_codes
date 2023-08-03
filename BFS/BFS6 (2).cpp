@@ -8,7 +8,9 @@ using namespace std;
 #define FOR(i, a, b) for(int i = a; i < b; i++)
 #define VectorVector vector<vector<int>>
 
-// Функция для поиска компонент связности в графе
+// Обход графа в ширину(список ребер) и нахождение компонентов связности
+
+
 // edges: список ребер в графе
 // n: количество вершин в графе
 vector<vector<int>> findConnectedComponents(vector<pair<int, int>> &edges, int n)

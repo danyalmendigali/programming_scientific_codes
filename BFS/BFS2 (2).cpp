@@ -8,6 +8,8 @@ using namespace std;
 #define FOR(i, a, b) for(int i = a; i < b; i++)
 #define VectorVector vector<vector<int>>
 
+// Обходи графа в ширину(матрица) и нахождение кратчайшего пути
+
 void bfs(VectorVector &matrix, int startNum, int endNum)
 {
     int size_matrix = matrix.size();

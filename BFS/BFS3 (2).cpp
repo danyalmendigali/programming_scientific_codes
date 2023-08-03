@@ -8,9 +8,7 @@ using namespace std;
 #define FOR(i, a, b) for(int i = a; i < b; i++)
 #define VectorVector vector<vector<int>>
 
-
-// Реализация алгоритма обхода в ширину (BFS) для поиска компонент связности в неориентированном графе
-
+// Обход графа в ширину(матрица) и нахождение компонентов связности
 
 // myMatrix: ссылку на двумерный вектор (матрицу смежности) представляющий граф.
 // startPoint: вершину, с которой начинается обход в ширину.
@@ -42,7 +40,7 @@ void bfs(VectorVector &myMatrixComponentBFS, int startPointInMyMatrixComponent, 
         // Проход по всем вершинам графа (представленным матрицей смежности)
         for (int i = 0; i < sizeMyMatrixComponentBFS; i++)
         {
-            // Если текущая вершина i смежна с numfront (то есть имеет ребро с numfront) и при этом она еще не была посещена (!visited[i]
+            // Если текущая вершина i смежна с numfront (то есть имеет ребро с numfront) и при этом она еще не была посещена (!visited[i])
             if (myMatrixComponentBFS[numFrontInMyMatrixComponentBFS][i] == 1 && !visitedInMyMatrixComponentBFS[i])
             {
                 queueInMyMatrixComponentBFS.push(i); // Добавляется в очередь
