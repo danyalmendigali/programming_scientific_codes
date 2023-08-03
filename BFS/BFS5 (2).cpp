@@ -11,7 +11,7 @@ using namespace std;
 // Функция для поиска кратчайшего пути между двумя вершинами в графе
 // edges: список ребер в графе
 // startPoint: стартовая вершина для поиска пути
-// endPoint: целевая вершина, до которой нужно найти кратчайший путь
+// targetVertex: целевая вершина, до которой нужно найти кратчайший путь
 
 vector<int> bfs(vector<pair<int, int>> &edges, int startPoint, int endPoint)
 {
@@ -23,9 +23,10 @@ vector<int> bfs(vector<pair<int, int>> &edges, int startPoint, int endPoint)
         n = max(n, max(edge.first, edge.second) + 1);
     }
 
-    vector<bool> visited(n, false); // Создаем вектор visited, который будет отслеживать, была ли вершина посещена во время обхода
-    vector<int> previous(n, -1); // Создаем вектор previous, который будет хранить информацию о предыдущей вершине в кратчайшем пути
-    queue<int> q; // Создаем очередь q, которая будет использоваться для хранения вершин, которые нужно посетить
+
+    vector <bool> visited(n, false); // Создаем вектор visited, который будет отслеживать, была ли вершина посещена во время обхода
+    vector <int> previous(n, -1); // Создаем вектор previous, который будет хранить информацию о предыдущей вершине в кратчайшем пути
+    queue <int> q; // Создаем очередь q, которая будет использоваться для хранения вершин, которые нужно посетить
 
     q.push(startPoint); // Начальная вершина startPoint помещается в конец очереди q, чтобы начать обход с этой вершины
     visited[startPoint] = true; // Флаг посещения для начальной вершины startPoint устанавливается в true, так как мы её уже посетили и она находится в очереди
@@ -49,7 +50,7 @@ vector<int> bfs(vector<pair<int, int>> &edges, int startPoint, int endPoint)
                 previous[v] = numFront; // Записываем информацию о том, что вершина v была достигнута из вершины numFront
             }
 
-            if(v == numFront && !visited[u]) // Проверяем, является ли вершиной u смежной с вершиной numFront
+            if(v = numFront && !visited[u]) // Проверяем, является ли вершиной u смежной с вершиной numFront
             {
                 q.push(u); // Если вершина u не была посещена, то добавляем ее в конец очереди q, чтобы посетить ее позже
                 visited[u] = true; // Устанавливается флаг посещения для вершины u в значение true, так как мы ее добавили в очередь и посетили позже
@@ -59,9 +60,9 @@ vector<int> bfs(vector<pair<int, int>> &edges, int startPoint, int endPoint)
     }
 
     // Восстановление кратчайшего пути от стартовой вершины к целевой
-    vector<int> shortestPath;
+    vector <int> shortestPath;
     int currentVertex = endPoint;
-    while(currentVertex != -1) // Пока не достигнута стартовая вершина (значение -1)
+    while(currentVertex != -1) // Пока не достгнута стартовая вершина(значение -1)
     {
         shortestPath.push_back(currentVertex); // Добавляем текущую вершину в кратчайший путь
         currentVertex = previous[currentVertex]; // Переходим к предыдущей вершине в кратчайшем пути
@@ -70,6 +71,7 @@ vector<int> bfs(vector<pair<int, int>> &edges, int startPoint, int endPoint)
     reverse(shortestPath.begin(), shortestPath.end()); // Обратный порядок вершин для получения пути от стартовой к целевой
 
     return shortestPath; // Возвращаем кратчайший путь от стартовой вершины к целевой
+
 }
 
 int main()
@@ -84,7 +86,7 @@ int main()
 
     vector<pair<int, int>> edges; // Создаем список ребер
 
-    cout << "Введите ребра в форме (u, v): " << "\n";
+    cout << "Введите ребра в форме(u, v): " << "\n";
     for(int i = 0; i < m; i++)
     {
         int u, v;
@@ -92,18 +94,20 @@ int main()
         edges.push_back({u, v}); // Добавляем ребро (u, v) в список ребер
     }
 
+
     int startPoint, endPoint;
     cout << "Введите стартовую вершину: ";
     cin >> startPoint;
     cout << "Введите конечную вершину: ";
     cin >> endPoint;
 
-    vector<int> shortestPath = bfs(edges, startPoint, endPoint); // Вызываем функцию bfs для поиска кратчайшего пути
+    vector <int> shortestPath = bfs(edges, startPoint, endPoint); // Вызываем функцию bfs для поиска кратчайшего пути
 
     if(shortestPath.empty()) // Если кратчайший путь не найден
     {
         cout << "Кратчайший путь не найден" << "\n";
     }
+
     else // Если кратчайший путь найден
     {
         cout << "Кратчайший путь: ";
@@ -113,6 +117,8 @@ int main()
         }
         cout << "\n";
     }
+
+
 
     return 0;
 }

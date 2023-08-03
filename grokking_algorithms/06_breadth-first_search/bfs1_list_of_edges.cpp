@@ -6,64 +6,67 @@ using namespace std;
 #define ar array
 #define ll long long
 #define FOR(i, a, b) for(int i = a; i < b; i++)
+#define VectorVector vector<vector<int>>
 
-// Реализация обхода графа в ширину (BFS) по списку ребер.
-
-void bfsEdgeList(vector<pair<int, int>>& edges, int startPoint)
+vector<int> bfs(vector<pair<int, int>> &edges, int startPoint, int endPoint)
 {
     int n = 0;
-
-    // Находим количество вершин в графе, находя максимальный номер вершины в списках ребер.
     for (auto edge : edges)
     {
         n = max(n, max(edge.first, edge.second) + 1);
     }
 
-    // Создаем вектор visited, который будет отслеживать, была ли вершина посещена во время обхода.
     vector<bool> visited(n, false);
-
-    // Создаем очередь q, которая будет использоваться для хранения вершин, которые нужно посетить.
+    vector<int> previous(n, -1);
     queue<int> q;
 
-    // Начальная вершина startPoint помещается в конец очереди q, чтобы начать обход с этой вершины.
     q.push(startPoint);
-
-    // Флаг посещения для начальной вершины startPoint устанавливается в true, так как мы её уже посетили и она находится в очереди.
     visited[startPoint] = true;
 
     while (!q.empty())
     {
-        int numFront = q.front(); // Извлекаем вершину из начала очереди q и сохраняем её в переменную numFront.
-        q.pop(); // Удаляем вершину из начала очереди q, так как мы её уже посетили и обработали.
+        int numFront = q.front();
+        q.pop();
 
-        cout << "Посещена вершина: " << numFront << "\n";
+        cout << "Обрабатываем вершину: " << numFront << "\n";
 
         for (auto edge : edges)
         {
             int u = edge.first;
             int v = edge.second;
 
-            // Проверяем, является ли вершина v смежной с вершиной numFront.
             if (u == numFront && !visited[v])
             {
-                // Если вершина v не была посещена, то добавляем её в конец очереди q, чтобы посетить её позже.
                 q.push(v);
-
-                // Устанавливаем флаг посещения для вершины v в значение true, так как мы её добавили в очередь и посетим позже.
                 visited[v] = true;
+                previous[v] = numFront;
             }
 
-            // Проверяем, является ли вершина u смежной с вершиной numFront.
             if (v == numFront && !visited[u])
             {
-                // Если вершина u не была посещена, то добавляем её в конец очереди q, чтобы посетить её позже.
                 q.push(u);
-
-                // Устанавливаем флаг посещения для вершины u в значение true, так как мы её добавили в очередь и посетим позже.
                 visited[u] = true;
+                previous[u] = numFront;
             }
         }
     }
+
+    if (previous[endPoint] == -1)
+    {
+        return vector<int>();
+    }
+
+    vector<int> shortestPath;
+    int currentVertex = endPoint;
+    while (currentVertex != -1)
+    {
+        shortestPath.push_back(currentVertex);
+        currentVertex = previous[currentVertex];
+    }
+
+    reverse(shortestPath.begin(), shortestPath.end());
+
+    return shortestPath;
 }
 
 int main()
@@ -72,13 +75,13 @@ int main()
     SetConsoleOutputCP(CP_UTF8);
     SetConsoleCP(CP_UTF8);
 
-    int n, m; // Количество вершин и ребер в графе.
+    int n, m;
     cout << "Введите количество вершин и ребер: ";
     cin >> n >> m;
 
-    vector<pair<int, int>> edges; // Создаем список ребер.
+    vector<pair<int, int>> edges;
 
-    cout << "Введите ребра в форме (u, v): " << endl;
+    cout << "Введите ребра в форме (u, v): " << "\n";
     for (int i = 0; i < m; i++)
     {
         int u, v;
@@ -86,9 +89,27 @@ int main()
         edges.push_back({u, v});
     }
 
-    int startVertex = 0; // Начальная вершина для обхода.
+    int startPoint, endPoint;
+    cout << "Введите стартовую вершину: ";
+    cin >> startPoint;
+    cout << "Введите конечную вершину: ";
+    cin >> endPoint;
 
-    bfsEdgeList(edges, startVertex);
+    vector<int> shortestPath = bfs(edges, startPoint, endPoint);
+
+    if (shortestPath.empty())
+    {
+        cout << "Кратчайший путь не найден" << "\n";
+    }
+    else
+    {
+        cout << "Кратчайший путь: ";
+        for (int vertex : shortestPath)
+        {
+            cout << vertex << " ";
+        }
+        cout << "\n";
+    }
 
     return 0;
 }
