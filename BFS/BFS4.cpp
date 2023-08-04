@@ -1,6 +1,7 @@
 #include <bits/stdc++.h>
 #include <windows.h>
 #include <iterator>
+
 using namespace std;
 
 #define ar array
@@ -8,42 +9,34 @@ using namespace std;
 #define FOR(i, a, b) for(int i = a; i < b; i++)
 #define VectorVector vector<vector<int>>
 
-// Обход графа в ширину(список ребер)
-
-void bfs(vector<pair<int, int>> &edges, int startPoint)
-{
-    int n = 0;
-    for(auto edge : edges)
-    {
-        n = max(n, max(edge.first, edge.second) + 1);
+// Функция для перевода списка ребер в матрицу смежности
+vector<vector<int>> convertToMatrix(vector<pair<int, int>>& edges, int numVertices) {
+    vector<vector<int>> adjMatrix(numVertices, vector<int>(numVertices, 0));
+    for (const auto& edge : edges) {
+        int u = edge.first;
+        int v = edge.second;
+        adjMatrix[u][v] = 1;
+        adjMatrix[v][u] = 1; // Если граф неориентированный, помечаем ребро (v, u) тоже
     }
+    return adjMatrix;
+}
 
-    vector <bool> visited(n, false);
-    queue <int> q;
-
+// Функция для обхода графа в ширину по матрице смежности
+void bfs(vector<vector<int>>& adjMatrix, int startPoint) {
+    int n = adjMatrix.size();
+    vector<bool> visited(n, false);
+    queue<int> q;
     q.push(startPoint);
     visited[startPoint] = true;
 
-    while(!q.empty())
-    {
+    while (!q.empty()) {
         int numFront = q.front();
         q.pop();
         cout << "Посещена вершина: " << numFront << "\n";
-        for(auto edge : edges)
-        {
-            int u = edge.first;
-            int v = edge.second;
-
-            if(u == numFront && !visited[v])
-            {
-                q.push(v);
-                visited[v] = true;
-            }
-
-            if(v == numFront && !visited[u])
-            {
-                q.push(u);
-                visited[u] = true;
+        for (int i = 0; i < n; i++) {
+            if (adjMatrix[numFront][i] == 1 && !visited[i]) {
+                q.push(i);
+                visited[i] = true;
             }
         }
     }
@@ -59,21 +52,23 @@ int main() {
     cin >> n >> m;
 
     vector<pair<int, int>> edges;
-
-
     cout << "Введите ребра в форме(u, v): " << "\n";
-    for(int i = 0; i < m; i++)
-    {
+    for (int i = 0; i < m; i++) {
         int u, v;
         cin >> u >> v;
         edges.push_back({u, v});
     }
 
-    int startPoint = 0;
-    bfs(edges, startPoint);
+    // Шаг 1: Перевод списка ребер в матрицу смежности
+    vector<vector<int>> adjMatrix = convertToMatrix(edges, n);
+
+    int startPoint;
+    cout << "Введите начальную вершину: ";
+    cin >> startPoint;
 
 
-
+    // Шаг 2: Обход графа в ширину по матрице смежности
+    bfs(adjMatrix, startPoint);
 
 
     return 0;
