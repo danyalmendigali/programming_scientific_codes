@@ -3,6 +3,8 @@
 using namespace std;
 const int INF = 1e9;
 
+// Путешествие между городами: Вам даны города и дороги между ними с указанием расстояний. Найдите кратчайший путь между двумя городами.
+
 void dijkstra(vector<vector<int>> &graph, int startPoint, int endPoint, vector<int> &dist, vector<int> &path)
 {
     int size_graph = graph.size();
