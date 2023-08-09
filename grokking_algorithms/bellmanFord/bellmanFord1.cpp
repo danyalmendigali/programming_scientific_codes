@@ -1,46 +1,37 @@
-#include <bits/stdc++.h>
+#include <iostream>
+#include <vector>
+#include <climits>
 #include <windows.h>
+
 using namespace std;
 
-const int INF = 1e9;
+// Алгоритм Беллмана-Форда для списка ребер(Крачатчайший путь от начальной вершины до всех которые есть)
 
 struct Edge {
-    int source, target, weight;
+    int source, dest, weight;
 };
 
-void bellmanFord(vector<Edge> &edges, int numVertices, int startVertex, int endVertex) {
-    vector<int> dist(numVertices, INF);
-    vector<int> pred(numVertices, -1);
-    dist[startVertex] = 0;
+bool bellman_ford(int V, const vector<Edge>& edges, int source, vector<int>& distances, vector<int>& predecessors) {
+    distances.assign(V, INT_MAX);
+    predecessors.assign(V, -1);
+    distances[source] = 0;
 
-    for (int i = 1; i < numVertices; ++i) {
-        for (const Edge &edge : edges) {
-            int u = edge.source;
-            int v = edge.target;
-            int w = edge.weight;
-
-            if (dist[u] != INF && dist[u] + w < dist[v]) {
-                dist[v] = dist[u] + w;
-                pred[v] = u;
+    for (int i = 0; i < V - 1; ++i) {
+        for (const Edge& edge : edges) {
+            if (distances[edge.source] != INT_MAX && distances[edge.source] + edge.weight < distances[edge.dest]) {
+                distances[edge.dest] = distances[edge.source] + edge.weight;
+                predecessors[edge.dest] = edge.source;
             }
         }
     }
 
-    // Восстановление пути
-    vector<int> shortestPath;
-    for (int v = endVertex; v != -1; v = pred[v]) {
-        shortestPath.push_back(v);
+    for (const Edge& edge : edges) {
+        if (distances[edge.source] != INT_MAX && distances[edge.source] + edge.weight < distances[edge.dest]) {
+            return false;
+        }
     }
-    reverse(shortestPath.begin(), shortestPath.end());
 
-    // Вывод результатов
-    cout << "Кратчайший путь от " << startVertex << " до " << endVertex << ":\n";
-    for (int vertex : shortestPath) {
-        cout << vertex << " ";
-    }
-    cout << "\n";
-
-    cout << "Расстояние: " << dist[endVertex] << "\n";
+    return true;
 }
 
 int main() {
@@ -48,21 +39,33 @@ int main() {
     SetConsoleOutputCP(CP_UTF8);
     SetConsoleCP(CP_UTF8);
 
-    int numVertices, numEdges;
-    cout << "Введите количество вершин и рёбер: ";
-    cin >> numVertices >> numEdges;
 
-    vector<Edge> edges(numEdges);
-    cout << "Введите рёбра в формате (u, v, w), где u и v - вершины, w - вес:\n";
-    for (int i = 0; i < numEdges; ++i) {
-        cin >> edges[i].source >> edges[i].target >> edges[i].weight;
+    int V, E;
+    cout << "Введите количество вершин: ";
+    cin >> V;
+    cout << "Введите количество ребер: ";
+    cin >> E;
+
+    vector<Edge> edges(E);
+
+    cout << "Введите ребра и их веса (формат: исходная вершина, конечная вершина, вес): " << "\n";
+    for (int i = 0; i < E; ++i) {
+        cin >> edges[i].source >> edges[i].dest >> edges[i].weight;
     }
 
-    int startPoint, endPoint;
-    cout << "Введите начальную и конечную вершины: ";
-    cin >> startPoint >> endPoint;
+    int source;
+    cout << "Введите начальную вершину: ";
+    cin >> source;
 
-    bellmanFord(edges, numVertices, startPoint, endPoint);
+    vector<int> distances, predecessors;
+    if (bellman_ford(V, edges, source, distances, predecessors)) {
+        cout << "Кратчайшие расстояния от вершины " << source << ":\n";
+        for (int i = 0; i < V; ++i) {
+            cout << "До вершины " << i << " = " << distances[i] << "\n";
+        }
+    } else {
+        cout << "Граф содержит цикл отрицательного веса.\n";
+    }
 
     return 0;
 }

@@ -1,13 +1,14 @@
 #include <iostream>
 #include <vector>
 #include <climits>
-#include <stack>
 #include <windows.h>
 
 using namespace std;
 
-bool bellman_ford(const vector<vector<int>>& graph, int source, vector<int>& distances, vector<int>& predecessors) {
-    int V = graph.size();
+// Алгоритм Беллмана-Форда для матрицы(Крачатчайший путь от начальной вершины до всех которые есть)
+
+
+bool bellman_ford(int V, const vector<vector<int>>& adjMatrix, int source, vector<int>& distances, vector<int>& predecessors) {
     distances.assign(V, INT_MAX);
     predecessors.assign(V, -1);
     distances[source] = 0;
@@ -15,8 +16,8 @@ bool bellman_ford(const vector<vector<int>>& graph, int source, vector<int>& dis
     for (int i = 0; i < V - 1; ++i) {
         for (int u = 0; u < V; ++u) {
             for (int v = 0; v < V; ++v) {
-                if (graph[u][v] != INT_MAX && distances[u] != INT_MAX && distances[u] + graph[u][v] < distances[v]) {
-                    distances[v] = distances[u] + graph[u][v];
+                if (adjMatrix[u][v] != 0 && distances[u] != INT_MAX && distances[u] + adjMatrix[u][v] < distances[v]) {
+                    distances[v] = distances[u] + adjMatrix[u][v];
                     predecessors[v] = u;
                 }
             }
@@ -25,27 +26,13 @@ bool bellman_ford(const vector<vector<int>>& graph, int source, vector<int>& dis
 
     for (int u = 0; u < V; ++u) {
         for (int v = 0; v < V; ++v) {
-            if (graph[u][v] != INT_MAX && distances[u] != INT_MAX && distances[u] + graph[u][v] < distances[v]) {
+            if (adjMatrix[u][v] != 0 && distances[u] != INT_MAX && distances[u] + adjMatrix[u][v] < distances[v]) {
                 return false;
             }
         }
     }
 
     return true;
-}
-
-void print_path(const vector<int>& predecessors, int endPoint) {
-    stack<int> path;
-    int current = endPoint;
-    while (current != -1) {
-        path.push(current);
-        current = predecessors[current];
-    }
-    while (!path.empty()) {
-        cout << path.top() << " ";
-        path.pop();
-    }
-    cout << endl;
 }
 
 int main() {
@@ -57,32 +44,33 @@ int main() {
     cout << "Введите количество вершин: ";
     cin >> V;
 
-    vector<vector<int>> graph(V, vector<int>(V, INT_MAX));
+    vector<vector<int>> adjMatrix(V, vector<int>(V, 0));
 
-    cout << "Введите матрицу смежности: " << "\n";
+    cout << "Введите матрицу смежности:\n";
     for (int i = 0; i < V; ++i) {
         for (int j = 0; j < V; ++j) {
-            cin >> graph[i][j];
+            cin >> adjMatrix[i][j];
         }
     }
 
-    int startPoint, endPoint;
+    int source;
     cout << "Введите начальную вершину: ";
-    cin >> startPoint;
-    cout << "Введите конечную вершину: ";
-    cin >> endPoint;
+    cin >> source;
 
-    vector<int> distances;
-    vector<int> predecessors;
-    if (bellman_ford(graph, startPoint, distances, predecessors)) {
-        cout << "Кратчайшее расстояние " << distances[endPoint] << "\n";
-        cout << "Путь: ";
-        print_path(predecessors, endPoint);
+    vector<int> distances, predecessors;
+    if (bellman_ford(V, adjMatrix, source, distances, predecessors)) {
+        cout << "Кратчайшие расстояния от вершины " << source << ":\n";
+        for (int i = 0; i < V; ++i) {
+            cout << "До вершины " << i << " = ";
+            if (distances[i] == INT_MAX) {
+                cout << "∞\n";
+            } else {
+                cout << distances[i] << "\n";
+            }
+        }
     } else {
         cout << "Граф содержит цикл отрицательного веса.\n";
     }
 
     return 0;
 }
-
-
