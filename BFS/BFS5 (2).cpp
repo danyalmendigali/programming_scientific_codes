@@ -13,7 +13,7 @@ using namespace std;
 
 // edges: список ребер в графе
 // startPoint: стартовая вершина для поиска пути
-// targetVertex: целевая вершина, до которой нужно найти кратчайший путь
+// endPoint: целевая вершина, до которой нужно найти кратчайший путь
 
 vector<int> bfs(vector<pair<int, int>> &edges, int startPoint, int endPoint)
 {
