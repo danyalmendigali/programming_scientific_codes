@@ -9,6 +9,7 @@ using namespace std;
 const int INF = 1e9;  // Большое число для представления бесконечности
 
 // Функция конвертации списка рёбер в матрицу смежности
+
 vector<vector<int>> convert(vector<pair<int, int>> &edges, int size_matrix)
 {
     // Инициализация матрицы нулями
