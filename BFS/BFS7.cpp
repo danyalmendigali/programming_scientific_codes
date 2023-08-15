@@ -6,6 +6,7 @@ using namespace std;
 #define FOR(i, a, b) for(int i = a; i < b; i++)
 
 // Функция обхода графа в ширину с проверкой наличия цикла(матрица)
+
 bool bfsMatrix(const vector<vector<int>>& matrix, int startPoint) // startPoint - Начальная вершина для начала обхода
 {
     // Определение размера матрицы (число вершин в графе)
