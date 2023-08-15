@@ -61,7 +61,7 @@ int main() {
 
 
     int sizeMatrix;
-    cout << "Введите размер матрицы: " << "\n";
+    cout << "Введите размер матрицы: ";
     cin >> sizeMatrix;
     vector<vector<int>> matrix(sizeMatrix); // Создаем матрицу
 

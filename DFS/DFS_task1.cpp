@@ -3,39 +3,38 @@
 #include <iterator>
 using namespace std;
 
+// Используем макросы для удобства
 #define ar array
 #define ll long long
 #define FOR(i, a, b) for(int i = a; i < b; i++)
 
-// 1 Задание
-// Поиск пути между двумя вершинами: Используйте DFS для поиска пути между двумя заданными вершинами.
-
-
-bool dfs(vector<vector<int>> &matrix, int startPoint, int endPoint, vector<bool> &visited, vector<int> &path)
-{
+// Функция реализует DFS для поиска пути от начальной вершины до конечной.
+// Возвращает true, если путь найден, и false в противном случае.
+bool dfs(vector<vector<int>> &matrix, int startPoint, int endPoint, vector<bool> &visited, vector<int> &path) {
     int size_matrix = matrix.size();
+
+    // Добавляем текущую вершину в путь
     path.push_back(startPoint);
     visited[startPoint] = true;
-    if(startPoint == endPoint)
-    {
+
+    // Если текущая вершина является конечной, то путь найден
+    if(startPoint == endPoint) {
         return true;
     }
 
-    for(int i = 0; i < size_matrix; i++)
-    {
-        if(matrix[startPoint][i] == 1 && !visited[i])
-        {
-            if(dfs(matrix, i, endPoint, visited, path))
-            {
-                return true;
+    // Проходим по соседям текущей вершины
+    for(int i = 0; i < size_matrix; i++) {
+        if(matrix[startPoint][i] == 1 && !visited[i]) {
+            // Рекурсивно запускаем DFS для соседа
+            if(dfs(matrix, i, endPoint, visited, path)) {
+                return true; // путь найден
             }
         }
     }
 
+    // Если путь через текущую вершину не найден, убираем ее из пути
     path.pop_back();
     return false;
-
-
 }
 
 int main() {
@@ -44,42 +43,41 @@ int main() {
     SetConsoleCP(CP_UTF8);
 
     int size_matrix;
-    cout << "Введиет размер матрицы: ";
+    cout << "Введите размер матрицы: ";
     cin >> size_matrix;
 
     vector<vector<int>> matrix(size_matrix);
-    cout << "Заполниет матрицу: " << "\n";
-    for(int i = 0; i < size_matrix; i++)
-    {
+
+    // Вводим матрицу смежности
+    cout << "Заполните матрицу: " << "\n";
+    for(int i = 0; i < size_matrix; i++) {
         matrix[i].resize(size_matrix);
-        for(int j = 0; j < size_matrix; j++)
-        {
+        for(int j = 0; j < size_matrix; j++) {
             cin >> matrix[i][j];
         }
     }
 
-    vector<bool> visited(size_matrix, false);
+    vector<bool> visited(size_matrix, false); // для отслеживания посещенных вершин
     int startPoint, endPoint;
+
+    // Ввод начальной и конечной вершин
     cout << "Введите начальную вершину: ";
     cin >> startPoint;
-    cout << "Введиет конечную вершину: ";
+    cout << "Введите конечную вершину: ";
     cin >> endPoint;
 
-    vector<int> path;
-    if(dfs(matrix, startPoint, endPoint, visited, path))
-    {
+    vector<int> path; // для хранения пути
+
+    // Пытаемся найти путь с помощью DFS
+    if(dfs(matrix, startPoint, endPoint, visited, path)) {
         cout << "Путь между вершинами: ";
-        for(int v : path)
-        {
+        for(int v : path) {
             cout << v << " ";
         }
         cout << "\n";
-    }
-    else{
+    } else {
         cout << "Путь между вершинами не найден" << "\n";
     }
-
-
 
     return 0;
 }
