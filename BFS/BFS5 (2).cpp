@@ -8,24 +8,9 @@ using namespace std;
 
 const int INF = 1e9;  // Большое число для представления бесконечности
 
-// Функция конвертации списка рёбер в матрицу смежности
+// Обходи графа в ширину и нахождение кратчайшего пути [список ребер]
 
-vector<vector<int>> convert(vector<pair<int, int>> &edges, int size_matrix)
-{
-    // Инициализация матрицы нулями
-    vector<vector<int>> matrix(size_matrix, vector<int>(size_matrix, 0));
-    for(const auto &edge : edges)
-    {
-        int u = edge.first;   // начало ребра
-        int v = edge.second;  // конец ребра
-        // Заполняем соответствующие ячейки матрицы
-        matrix[u][v] = 1;
-        matrix[v][u] = 1;
-    }
-    return matrix;
-}
 
-// Обход графа в ширину и нахождение кратчайшего пути
 void bfs(vector<vector<int>> &matrix, int startPoint, int endPoint)
 {
     int size_matrix = matrix.size();
@@ -68,31 +53,26 @@ void bfs(vector<vector<int>> &matrix, int startPoint, int endPoint)
 }
 
 int main() {
-    cin.tie();  // Отвязываем cin от cout для быстродействия
-    // Настройка кодировки консоли для корректного вывода кириллицы
+    cin.tie();
     SetConsoleOutputCP(CP_UTF8);
     SetConsoleCP(CP_UTF8);
 
-    int n, m; // n - число вершин, m - число рёбер
-
+    int n, m;
     cout << "Введите количество вершин: ";
     cin >> n;
 
     cout << "Введите количество ребер: ";
     cin >> m;
 
-    vector<pair<int, int>> edges;  // Список рёбер
-
-    cout << "Введите ребра в формате(u, v): " << "\n";
+    vector<vector<int>> matrix(n, vector<int>(n, 0));
+    cout << "Заполните ребра в форме(u, v): " << "\n";
     for(int i = 0; i < m; i++)
     {
-        int u, v;  // u - начало ребра, v - конец ребра
+        int u, v;
         cin >> u >> v;
-        edges.push_back({u, v});
+        matrix[u][v] = 1;
+        // matrix[v][u] = 1;
     }
-
-    // Конвертируем список рёбер в матрицу смежности
-    vector<vector<int>> matrix = convert(edges, n);
 
     int startPoint, endPoint;  // Начальная и конечная вершины для поиска пути
     cout << "Введите начальную вершину: ";

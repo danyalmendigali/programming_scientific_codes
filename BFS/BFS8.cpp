@@ -8,7 +8,7 @@ using namespace std;
 
 #define VectorVector vector<vector<int>>
 
-// Нахождение цикла(список ребер)
+// Нахождение цикла [список ребер]
 
 const int INF = 1e9;
 

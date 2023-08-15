@@ -8,7 +8,7 @@ using namespace std;
 #define FOR(i, a, b) for(int i = a; i < b; i++)
 #define VectorVector vector<vector<int>>
 
-// Обходи графа в ширину(матрица) и нахождение кратчайшего пути
+// Обходи графа в ширину и нахождение кратчайшего пути [матрица]
 
 void bfs(VectorVector &matrix, int startNum, int endNum)
 {
