@@ -40,7 +40,7 @@ void bfs(VectorVector &matrix, int startNum) {
                 result.push_back(i);
             }
 
-            cout << "Кратчайший путь " << " до " << endNum << ": ";
+            cout << "Кратчайший путь: ";
             for(int i = result.size() - 1; i >= 0; i--) {
                 cout << result[i] << " ";
             }
