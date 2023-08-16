@@ -7,7 +7,7 @@ using namespace std;
 #define ll long long
 #define FOR(i, a, b) for(int i = a; i < b; i++)
 
-// Обход графа в ширину(матрица)
+// Обход графа в ширину [матрица]
 
 void bfsMatrix(const vector<vector<int>>& matrix, int startVertex) // startVertex - Начальная вершина
 {
