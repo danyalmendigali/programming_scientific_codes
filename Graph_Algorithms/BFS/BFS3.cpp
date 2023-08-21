@@ -10,14 +10,14 @@ using namespace std;
 
 // Определение уровня каждой вершины(BFS)
 
-void bfs(VectorVector &matrix, int startNum) {
+void bfs(VectorVector &matrix, int startPoint) {
     int size_matrix = matrix.size();
     vector<int> visited(size_matrix, 0);
     vector<int> prog(size_matrix, -1);
 
     queue<int> q;
-    q.push(startNum);
-    visited[startNum] = true;
+    q.push(startPoint);
+    visited[startPoint] = true;
 
     while(!q.empty()) {
         int numfront = q.front();
@@ -33,14 +33,14 @@ void bfs(VectorVector &matrix, int startNum) {
     }
     cout << "\n";
 
-    for (int endNum = 0; endNum < size_matrix; endNum++) {
-        if (endNum != startNum) {
+    for (int endPoint = 0; endPoint < size_matrix; endPoint++) {
+        if (endPoint != startPoint) {
             vector<int> result;
-            for (int i = endNum; i != -1; i = prog[i]) {
+            for (int i = endPoint; i != -1; i = prog[i]) {
                 result.push_back(i);
             }
 
-            cout << "Кратчайший путь " << " до " << endNum << ": ";
+            cout << "Кратчайший путь " << " до " << endPoint << ": ";
             for(int i = result.size() - 1; i >= 0; i--) {
                 cout << result[i] << " ";
             }
@@ -72,11 +72,11 @@ int main() {
         }
     }
 
-    int startNum;
+    int startPoint;
     cout << "Введите начальную точку: ";
-    cin >> startNum;
+    cin >> startPoint;
 
-    bfs(matrix, startNum);
+    bfs(matrix, startPoint);
 
     return 0;
 }
