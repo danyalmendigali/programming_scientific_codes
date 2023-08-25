@@ -9,6 +9,7 @@ using namespace std;
 
 // Обход графа в глубину и проверка связности графа(DFS)
 
+
 void dfsMatrix(const vector<vector<int>> &matrix, int startPoint, vector<bool>& visited) {
     int size_matrix = matrix.size();
 
