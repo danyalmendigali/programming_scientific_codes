@@ -7,7 +7,8 @@ using namespace std;
 #define ll long long
 #define FOR(i, a, b) for(int i = a; i < b; i++)
 
-// Обход графа в глубину, используя матрицу смежности
+// Обход графа в глубину(DFS)
+
 void dfsMatrix(const vector<vector<int>> &matrix, int startPoint, vector<bool>& visited) {
     int size_matrix = matrix.size(); // Определение размера матрицы
 
@@ -52,3 +53,4 @@ int main() {
 
     return 0;
 }
+
