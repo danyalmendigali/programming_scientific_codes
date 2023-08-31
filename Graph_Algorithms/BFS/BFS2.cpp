@@ -1,99 +1,107 @@
 #include <bits/stdc++.h>
+#include <algorithm>
 #include <windows.h>
-#include <iterator>
+
+#define optimus_prime  cin.tie(0); cout.tie(0)
+#define all(a) a.begin() , a.end()
+#define endl "\n"
+#define FOR(i, a, b) for(int i = a; i < b; i++)
+#define pb(a) push_back(a)
+#define p(a) push(a)
+#define sz size()
+#define ll long long
+#define F first
+#define S second
+
 using namespace std;
 
-#define ar array
-#define ll long long
-#define FOR(i, a, b) for(int i = a; i < b; i++)
+// Определение компонент связности(BFS)
 
-// Определение связности графа(BFS)
+const ll N = 1e9;
+const ll inf = 1e9 + 9;
+const ll mod = 1e9 + 7;
 
-void bfs(vector<vector<int>> &matrix, int startPoint, vector<int> &component)
+
+void bfs(vector<vector<ll>> &dp, ll startPoint, ll endPoint)
 {
-    int size_matrix = matrix.size();
-    vector<bool> visited(size_matrix, false);
-    queue<int> q;
+    ll size_dp = dp.sz;
+    vector<bool> visited(size_dp, false);
+    vector<ll> path(size_dp, -1);
+    queue<ll> q;
 
-    q.push(startPoint);
+    q.p(startPoint);
     visited[startPoint] = true;
 
     while(!q.empty())
     {
-        int numFront = q.front();
+        ll numFront = q.front();
         q.pop();
         cout << "Посещена вершина: " << numFront << "\n";
-        for(int i = 0; i < size_matrix; i++)
+        FOR(i, 0, size_dp)
         {
-            if(matrix[numFront][i] != 0 && !visited[i])
+            if(dp[numFront][i] != 0 && !visited[i])
             {
                 q.push(i);
                 visited[i] = true;
+
+                path[i] = numFront;
             }
         }
     }
 
-    for(int i = 0; i < size_matrix; i++)
+    vector<ll> pred;
+    for(ll i = endPoint; i != -1; i = path[i])
     {
-        if(visited[i])
-        {
-            component.push_back(i);
-        }
+        pred.pb(i);
     }
+
+    cout << "Кратчайший путь: ";
+    for(ll i = pred.sz - 1; i >= 0; i--)
+    {
+        cout  << pred[i] << " ";
+    }
+    cout << "\n";
+    cout << "Минимальное расстояние: " << pred.sz << "\n";
 }
 
-int main() {
-    cin.tie();
+
+signed main()
+{
     SetConsoleOutputCP(CP_UTF8);
     SetConsoleCP(CP_UTF8);
 
-    int size_matrix;
-    cout << "Введите размер матрицы: ";
-    cin >> size_matrix;
+    optimus_prime;
 
-    vector<vector<int>> matrix(size_matrix);
+    ll size_dp;
+    cout << "Введите размер матрицы: ";
+    cin >> size_dp;
+
+    vector<vector<ll>> dp(size_dp);
     cout << "Заполните матрицу: " << "\n";
-    for(int i = 0; i < size_matrix; i++)
+    FOR(i, 0, size_dp)
     {
-        matrix[i].resize(size_matrix);
-        for(int j = 0; j < size_matrix; j++)
+        dp[i].resize(size_dp);
+        FOR(j, 0, size_dp)
         {
-            cin >> matrix[i][j];
+            cin >> dp[i][j];
         }
     }
 
-    int startPoint;
+    ll startPoint, endPoint;
     cout << "Введите начальную вершину: ";
     cin >> startPoint;
+    cout << "Введиете конечную вершину: ";
+    cin >> endPoint;
+
+    bfs(dp, startPoint, endPoint);
 
 
-    vector<vector<int>> components;
-    vector<bool> visited(size_matrix, false);
-
-    for(int i = 0; i < size_matrix; i++)
-    {
-        if(!visited[i])
-        {
-            vector<int> component;
-            bfs(matrix, i, component);
-            components.push_back(component);
-            for(int node : component)
-            {
-                visited[node] = true;
-            }
-        }
-    }
 
 
-    cout << "Компоненты связности: " << "\n";
-    for(const vector<int> component : components)
-    {
-        for(int node : component)
-        {
-            cout << node << " ";
-        }
-        cout << "\n";
-    }
+
+
+
+
 
 
 
@@ -101,4 +109,3 @@ int main() {
 
     return 0;
 }
-

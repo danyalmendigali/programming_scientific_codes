@@ -1,32 +1,44 @@
 #include <bits/stdc++.h>
+#include <algorithm>
 #include <windows.h>
-#include <iterator>
+
+#define optimus_prime  cin.tie(0); cout.tie(0)
+#define all(a) a.begin() , a.end()
+#define endl "\n"
+#define FOR(i, a, b) for(int i = a; i < b; i++)
+#define pb(a) push_back(a)
+#define p(a) push(a)
+#define sz size()
+#define ll long long
+#define F first
+#define S second
+
 using namespace std;
 
-#define ar array
-#define ll long long
-#define FOR(i, a, b) for(int i = a; i < b; i++)
+const ll N = 1e9;
+const ll inf = 1e9 + 9;
+const ll mod = 1e9 + 7;
 
-// Поиск кратчайшего пути(BFS)
+// Кратчайший путь(BFS)
 
-void bfs(vector<vector<int>> &matrix, int startPoint, int endPoint)
+void bfs(vector<vector<ll>> &dp, ll startPoint, ll endPoint)
 {
-    int size_matrix = matrix.size();
-    vector<bool> visited(size_matrix, false);
-    vector<int> path(size_matrix, -1);
-    queue<int> q;
+    ll size_dp = dp.sz;
+    vector<bool> visited(size_dp, false);
+    vector<ll> path(size_dp, -1);
+    queue<ll> q;
 
-    q.push(startPoint);
+    q.p(startPoint);
     visited[startPoint] = true;
 
     while(!q.empty())
     {
-        int numFront = q.front();
+        ll numFront = q.front();
         q.pop();
         cout << "Посещена вершина: " << numFront << "\n";
-        for(int i = 0; i < size_matrix; i++)
+        FOR(i, 0, size_dp)
         {
-            if(matrix[numFront][i] != 0 && !visited[i])
+            if(dp[numFront][i] != 0 && !visited[i])
             {
                 q.push(i);
                 visited[i] = true;
@@ -36,48 +48,54 @@ void bfs(vector<vector<int>> &matrix, int startPoint, int endPoint)
         }
     }
 
-    vector<int> pred;
-    for(int i = endPoint; i != -1; i = path[i])
+    vector<ll> pred;
+    for(ll i = endPoint; i != -1; i = path[i])
     {
-        pred.push_back(i);
+        pred.pb(i);
     }
 
     cout << "Кратчайший путь: ";
-    for(int i = pred.size() - 1; i >= 0; i--)
+    for(ll i = pred.sz - 1; i >= 0; i--)
     {
         cout  << pred[i] << " ";
     }
     cout << "\n";
-    cout << "Минимальное расстояние: " << pred.size() << "\n";
+    cout << "Минимальное расстояние: " << pred.sz << "\n";
 }
 
-int main() {
-    cin.tie();
+
+signed main()
+{
     SetConsoleOutputCP(CP_UTF8);
     SetConsoleCP(CP_UTF8);
 
-    int size_matrix;
-    cout << "Введите размер матрицы: ";
-    cin >> size_matrix;
+    optimus_prime;
 
-    vector<vector<int>> matrix(size_matrix);
+    ll size_dp;
+    cout << "Введите размер матрицы: ";
+    cin >> size_dp;
+
+    vector<vector<ll>> dp(size_dp);
     cout << "Заполните матрицу: " << "\n";
-    for(int i = 0; i < size_matrix; i++)
+    FOR(i, 0, size_dp)
     {
-        matrix[i].resize(size_matrix);
-        for(int j = 0; j < size_matrix; j++)
+        dp[i].resize(size_dp);
+        FOR(j, 0, size_dp)
         {
-            cin >> matrix[i][j];
+            cin >> dp[i][j];
         }
     }
 
-    int startPoint, endPoint;
+    ll startPoint, endPoint;
     cout << "Введите начальную вершину: ";
     cin >> startPoint;
     cout << "Введиете конечную вершину: ";
     cin >> endPoint;
 
-    bfs(matrix, startPoint, endPoint);
+    bfs(dp, startPoint, endPoint);
+
+
+
 
 
 
@@ -90,5 +108,3 @@ int main() {
 
     return 0;
 }
-
-
