@@ -1,84 +1,102 @@
 #include <bits/stdc++.h>
+#include <algorithm>
 #include <windows.h>
-#include <iterator>
+
+#define optimus_prime  cin.tie(0); cout.tie(0)
+#define all(a) a.begin() , a.end()
+#define endl "\n"
+#define FOR(i, a, b) for(int i = a; i < b; i++)
+#define pb(a) push_back(a)
+#define p(a) push(a)
+#define sz size()
+#define ll long long
+#define F first
+#define S second
+
 using namespace std;
 
-#define ar array
-#define ll long long
-#define FOR(i, a, b) for(int i = a; i < b; i++)
-#define VectorVector vector<vector<int>>
+const ll N = 1e9;
+const ll inf = 1e9 + 9;
+const ll mod = 1e9 + 7;
 
-// Определение уровня каждой вершины(BFS)
 
-void bfs(VectorVector &matrix, int startPoint) {
-    int size_matrix = matrix.size();
-    vector<int> visited(size_matrix, 0);
-    vector<int> prog(size_matrix, -1);
-
-    queue<int> q;
-    q.push(startPoint);
+void bfs(vector<vector<ll>> dp, ll startPoint)
+{
+    ll size_dp = dp.sz;
+    vector<bool> visited(size_dp, false);
+    vector<ll> prog(size_dp, -1);
+    queue<ll> q;
+    q.p(startPoint);
     visited[startPoint] = true;
-
-    while(!q.empty()) {
-        int numfront = q.front();
+    while(!q.empty())
+    {
+        ll numFront = q.front();
         q.pop();
-        cout << "Посещена вершина: " << numfront << "\n";
-        for(int i = 0; i < size_matrix; i++) {
-            if(matrix[numfront][i] == 1 && !visited[i]) {
-                q.push(i);
+        cout << "Посещена вершина: " << numFront << endl;
+        FOR(i, 0, dp.sz)
+        {
+            if(dp[numFront][i] != 0 && !visited[i])
+            {
+                q.p(i);
                 visited[i] = true;
-                prog[i] = numfront;
+                prog[i] = numFront;
             }
         }
     }
-    cout << "\n";
 
-    for (int endPoint = 0; endPoint < size_matrix; endPoint++) {
-        if (endPoint != startPoint) {
-            vector<int> result;
-            for (int i = endPoint; i != -1; i = prog[i]) {
-                result.push_back(i);
+    cout << endl;
+    FOR(endPoint, 0, dp.sz)
+    {
+        if(endPoint != startPoint)
+        {
+            vector<ll> result;
+            for(ll i = endPoint; i != -1; i = prog[i])
+            {
+                result.pb(i);
             }
-
-            cout << "Кратчайший путь " << " до " << endPoint << ": ";
-            for(int i = result.size() - 1; i >= 0; i--) {
+            cout << endl;
+            cout << "Кратчайший путь: ";
+            for(ll i = result.size() - 1; i >= 0; i--)
+            {
                 cout << result[i] << " ";
             }
             cout << "\n";
-
-            cout << "Кратчайший путь = " << result.size() << "\n" << "\n";
+            cout << "Длинна кратчайшего пути: " << result.size() << "\n" << "\n";
         }
     }
-
     cout << "\n" << "\n";
 }
 
-int main() {
-    cin.tie();
+signed main()
+{
     SetConsoleOutputCP(CP_UTF8);
     SetConsoleCP(CP_UTF8);
 
-    int size_matrix;
+    ll size_dp;
     cout << "Введите размер матрицы: ";
-    cin >> size_matrix;
+    cin >> size_dp;
 
-    vector<vector<int>> matrix(size_matrix, vector<int>(size_matrix, 0));
-    cout << "Заполните матрицу: " << "\n";
-    for(int i = 0; i < size_matrix; i++)
-    {
-        for(int j = 0; j < size_matrix; j++)
-        {
-            cin >> matrix[i][j];
-        }
-    }
+    vector<vector<ll>> dp(size_dp, vector<ll>(size_dp, 0));
+    cout << "Заполните матрицу: " << endl;
+    FOR(i, 0, size_dp)
+      FOR(j, 0, size_dp) cin >> dp[i][j];
 
-    int startPoint;
-    cout << "Введите начальную точку: ";
+
+    ll startPoint;
+    cout << "Введите начальную вершину: ";
     cin >> startPoint;
 
-    bfs(matrix, startPoint);
+    bfs(dp, startPoint);
+
+
+
+
+
+
+
+
+
+
 
     return 0;
 }
-
-
