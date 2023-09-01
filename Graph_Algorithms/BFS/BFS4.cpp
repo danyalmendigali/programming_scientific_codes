@@ -1,36 +1,44 @@
 #include <bits/stdc++.h>
+#include <algorithm>
 #include <windows.h>
-#include <iterator>
+
+#define optimus_prime  cin.tie(0); cout.tie(0)
+#define all(a) a.begin() , a.end()
+#define endl "\n"
+#define FOR(i, a, b) for(int i = a; i < b; i++)
+#define pb(a) push_back(a)
+#define p(a) push(a)
+#define sz size()
+#define ll long long
+#define F first
+#define S second
+
 using namespace std;
 
-#define ar array
-#define ll long long
-#define FOR(i, a, b) for(int i = a; i < b; i++)
-#define VectorVector vector<vector<int>>
+const ll N = 1e9;
+const ll inf = 1e9 + 9;
+const ll mod = 1e9 + 7;
 
-// Поиск циклов в графе(BFS)
 
-bool isCycle(vector<vector<int>> &matrix, int startPoint)
+bool isCycle(vector<vector<ll>>& dp, ll startPoint)
 {
-    int size_matrix = matrix.size();
-    vector<bool> visited(size_matrix, false);
-    vector<int> parent(size_matrix, -1);
-    queue<int> q;
-
-    q.push(startPoint);
+    ll size_dp = dp.sz;
+    vector<bool> visited(size_dp, false);
+    vector<ll> parent(size_dp, -1);
+    queue<ll> q;
+    q.p(startPoint);
     visited[startPoint] = true;
-
     while(!q.empty())
     {
-        int numFront = q.front();
+        ll numFront = q.front();
         q.pop();
-        for(int i = 0; i < size_matrix; i++)
+        FOR(i, 0, size_dp)
         {
-            if(matrix[numFront][i] == 1)
+            if(dp[numFront][i] == 1)
             {
                 if(!visited[i])
                 {
-                    q.push(i);
+                    q.p(i);
                     visited[i] = true;
 
                     parent[i] = numFront;
@@ -46,35 +54,37 @@ bool isCycle(vector<vector<int>> &matrix, int startPoint)
     return false;
 }
 
-int main() {
-    cin.tie();
+signed main()
+{
     SetConsoleOutputCP(CP_UTF8);
     SetConsoleCP(CP_UTF8);
 
-    int size_matrix;
+    optimus_prime;
+
+    ll size_dp;
     cout << "Введите размер матрицы: ";
-    cin >> size_matrix;
+    cin >> size_dp;
 
-    vector<vector<int>> matrix(size_matrix, vector<int>(size_matrix, 0));
-    cout << "Заполните матрицу: " << "\n";
-    for(int i = 0; i < size_matrix; i++)
-    {
-        for(int j = 0; j < size_matrix; j++)
-        {
-            cin >> matrix[i][j];
-        }
-    }
+    vector<vector<ll>> dp(size_dp, vector<ll>(size_dp, 0));
+    cout << "Заполните матрицу: " << endl;
+    FOR(i, 0, size_dp)
+      FOR(j, 0, size_dp) cin >> dp[i][j];
 
-    bool cycle = isCycle(matrix, 0);
 
+
+    bool cycle = isCycle(dp, 0);
     if(cycle)
     {
-        cout << "Граф имеет цикл" << "\n";
+        cout << "Граф имеет цикл" << endl;
     }
     else
     {
-        cout << "Граф не имеет цикла" << "\n";
+        cout << "Граф не имеет цикла" << endl;
     }
+
+
+
+
 
 
 
