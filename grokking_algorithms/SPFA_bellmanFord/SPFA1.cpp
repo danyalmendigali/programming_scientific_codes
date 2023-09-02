@@ -1,87 +1,103 @@
 #include <bits/stdc++.h>
 #include <windows.h>
+
+#define optimus_prime  cin.tie(0); cout.tie(0)
+#define all(a) a.begin() , a.end()
+#define endl "\n"
+#define vll vector<long long>
+#define FOR(i, a, b) for(int i = a; i < b; i++)
+#define pb(a) push_back(a)
+#define sz size()
+#define ll long long
+#define F first
+#define S second
+
 using namespace std;
 
-const int INF = 1e9;  // Бесконечное значение для инициализации расстояний
+const ll N = 1e9;
+const ll inf = 1e9 + 9;
+const ll mod = 1e9 + 7;
 
-// Функция SPFA для нахождения кратчайшего пути в графе от вершины start до вершины end
-pair<vector<int>, int> spfa(int n, const vector<vector<int>>& matrix, int startPoint, int endPoint) {
-    vector<int> dist(n, INF);      // Массив для хранения кратчайших расстояний до каждой вершины
-    vector<bool> inQueue(n, false); // Массив для проверки, находится ли вершина в очереди
-    vector<int> pred(n, -1);       // Массив предшественников для восстановления пути
-    vector<int> count(n, 0);       // Массив для подсчета, сколько раз вершина была добавлена в очередь
+pair<vector<ll>, ll> spfa(ll size_dp, const vector<vector<ll>>& dp, ll startPoint, ll endPoint)
+{
+    vll dist(size_dp, inf);
+    vector<bool> inQueue(size_dp, false);
+    vll pred(size_dp, -1);
+    vll count(size_dp, 0);
 
-    dist[startPoint] = 0;  // Расстояние от стартовой вершины до себя равно 0
+    dist[startPoint] = 0;
+    queue<ll> q;
+    q.push(startPoint);
+    inQueue[startPoint] = true;
 
-    queue<int> q;
-    q.push(startPoint);    // Добавляем стартовую вершину в очередь
-    inQueue[startPoint] = true;  // Отмечаем, что вершина находится в очереди
-
-    while (!q.empty()) {  // Пока очередь не пуста
-        int curr = q.front();  // Берем вершину из начала очереди
+    while (!q.empty())
+    {
+        ll numFront = q.front();
         q.pop();
-        inQueue[curr] = false;  // Отмечаем, что вершина больше не находится в очереди
+        inQueue[numFront] = false;
 
-        // Рассматриваем всех соседей текущей вершины
-        for (int i = 0; i < n; ++i) {
-            // Если сосед соединен ребром с текущей вершиной и через текущую вершину можно улучшить путь до соседа
-            if (matrix[curr][i] != 0 && dist[curr] + matrix[curr][i] < dist[i]) {
-                dist[i] = dist[curr] + matrix[curr][i];  // Обновляем путь
-                pred[i] = curr;  // Запоминаем, что через curr вершину можно улучшить путь до i
-                if (!inQueue[i]) {  // Если вершина i еще не в очереди
-                    q.push(i);  // Добавляем в очередь
-                    inQueue[i] = true;  // Отмечаем, что вершина теперь в очереди
-
-                    count[i]++;  // Увеличиваем счетчик добавлений вершины i в очередь
-                    if (count[i] > n) {  // Если вершина была добавлена в очередь более n раз
-                        cout << "Граф содержит цикл отрицательного веса!\n";
-                        exit(0);  // Завершаем программу
+        FOR(i, 0, size_dp)
+        {
+            if (dp[numFront][i] != 0 && dist[numFront] + dp[numFront][i] < dist[i])
+            {
+                dist[i] = dist[numFront] + dp[numFront][i];
+                pred[i] = numFront;
+                if (!inQueue[i])
+                {
+                    q.push(i);
+                    inQueue[i] = true;
+                    count[i]++;
+                    if (count[i] >= size_dp)
+                    {
+                        cout << "Граф имеет цикл отрицательного веса" << endl;
+                        exit(0);
                     }
                 }
             }
         }
     }
 
-    vector<int> path;  // Массив для восстановления пути
-    for (int at = endPoint; at != -1; at = pred[at]) {
-        path.push_back(at);  // Добавляем вершину в путь
-    }
-    reverse(path.begin(), path.end());  // Разворачиваем путь, так как он был получен в обратном порядке
+    vector<ll> path;
+    for (ll i = endPoint; i != -1; i = pred[i])
+        path.pb(i);
 
-    return {path, dist[endPoint]};  // Возвращаем путь и длину пути
+    reverse(all(path));
+
+    return {path, dist[endPoint]};
 }
 
-int main() {
-    SetConsoleOutputCP(CP_UTF8);  // Устанавливаем кодировку вывода
-    SetConsoleCP(CP_UTF8);  // Устанавливаем кодировку ввода
+signed main()
+{
+    SetConsoleOutputCP(CP_UTF8);
+    SetConsoleCP(CP_UTF8);
 
-    int n;
-    cout << "Введите количество вершин: ";
-    cin >> n;
+    optimus_prime;
 
-    vector<vector<int>> matrix(n, vector<int>(n));  // Матрица смежности графа
+    int size_dp;
+    cout << "Введите размер матрицы: ";
+    cin >> size_dp;
 
-    cout << "Введите матрицу смежности:\n";
-    for (int i = 0; i < n; ++i) {
-        for (int j = 0; j < n; ++j) {
-            cin >> matrix[i][j];
-        }
-    }
+    vector<vector<ll>> dp(size_dp, vll(size_dp));
+    cout << "Введите матрицу: " << endl;
+    FOR(i, 0, size_dp)
+    FOR(j, 0, size_dp) cin >> dp[i][j];
 
     int startPoint, endPoint;
     cout << "Введите начальную вершину: ";
     cin >> startPoint;
+
     cout << "Введите конечную вершину: ";
     cin >> endPoint;
 
-    pair<vector<int>, int> result = spfa(n, matrix, startPoint, endPoint);  // Вызываем функцию spfa
+    pair<vector<ll>, ll> result = spfa(size_dp, dp, startPoint, endPoint);
 
     cout << "Кратчайший путь: ";
-    for (int v : result.first) {  // Выводим путь
-        cout << v << " ";
+    for (ll num : result.F)
+    {
+        cout << num << " ";
     }
-    cout << "\n";
-    cout << "Длина пути: " << result.second << "\n";  // Выводим длину пути
+    cout << endl;
+    cout << "Кратчайший путь: " << result.S << "\n";
 
     return 0;
 }
