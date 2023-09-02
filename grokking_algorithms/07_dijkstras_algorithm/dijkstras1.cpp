@@ -1,108 +1,96 @@
-#include <iostream>
-#include <vector>
-#include <limits>
-#include <queue>
-#include <algorithm>
+#include <bits/stdc++.h>
 #include <windows.h>
+
+#define optimus_prime  cin.tie(0); cout.tie(0)
+#define all(a) a.begin() , a.end()
+#define endl "\n"
+#define vll vector<long long>
+#define FOR(i, a, b) for(int i = a; i < b; i++)
+#define pb(a) push_back(a)
+#define sz size()
+#define ll long long
+#define F first
+#define S second
+
 using namespace std;
 
-const int INF = 1e9;
+const ll N = 1e9; // Константа N (не используется в коде)
+const ll inf = 1e9 + 9; // Константа inf (не используется в коде)
+const ll mod = 1e9 + 7; // Константа mod (не используется в коде)
 
-// Функция для реализации алгоритма Дейкстры
-// graph: матрица смежности графа.
-// startPoint: начальная вершина, от которой ищутся кратчайшие пути.
-// endPoint: конечная вершина, до которой ищется кратчайший путь.
-// dist: вектор, в котором будут храниться кратчайшие расстояния от startPoint до всех остальных вершин.
-// path: вектор, в котором будет храниться информация о предыдущих вершинах на кратчайшем пути от startPoint до каждой вершины.
+// Функция Dijkstra для поиска кратчайшего пути
+void dijkstra(vector<vector<ll>>& dp, ll startPoint, ll endPoint, vector<ll>& dist, vector<ll> &path)
+{
+    ll size_dp = dp.size(); // Получение размера матрицы
+    vector<bool> visited(size_dp, false); // Вектор для отслеживания посещенных вершин
+    dist.assign(size_dp, inf); // Инициализация вектора расстояний бесконечностью
+    path.assign(size_dp, -1); // Инициализация вектора пути значениями -1
 
-void dijkstra(vector<vector<int>>& graph, int startVertex, int endVertex, vector<int>& dist, vector<int>& path) {
+    dist[startPoint] = 0; // Установка расстояния от начальной вершины до самой себя равным 0
+    priority_queue<pair<ll, ll>, vector<pair<ll, ll>>, greater<pair<ll, ll>>> pq; // Создание приоритетной очереди для хранения пар (расстояние, вершина)
+    pq.push({0, startPoint}); // Добавление начальной вершины в очередь с расстоянием 0
 
-    int numVertices = graph.size(); // size_graph - количество вершин в графе, получаемое из размера матрицы смежности.
-    vector<bool> visited(numVertices, false); // Вектор для пометки посещенных вершин
-    dist.assign(numVertices, INF); // Инициализируем вектор расстояний INF (бесконечностью)
-    path.assign(numVertices, -1); // Инициализируем вектор путей -1 (соответствует отсутствию пути)
+    while(!pq.empty()) // Пока очередь не пуста
+    {
+        ll u = pq.top().S; // Извлечение вершины с наименьшим расстоянием
+        pq.pop(); // Удаление вершины из очереди
 
-    dist[startVertex] = 0; // Начальное расстояние до стартовой вершины равно 0
+        FOR(v, 0, size_dp) // Перебор соседних вершин
+        {
+            if(dp[u][v] != 0 && !visited[v]) // Если есть ребро и вершина не посещена
+            {
+                int newDist = dist[u] + dp[u][v]; // Вычисление нового расстояния до вершины v
+                if(newDist < dist[v]) // Если новое расстояние меньше текущего
+                {
+                    dist[v] = newDist; // Обновление расстояния
+                    path[v] = u; // Обновление пути до вершины v
 
-    // Приоритетная очередь для выбора следующей вершины с наименьшим расстоянием
-    priority_queue<pair<int, int>, vector<pair<int, int>>, greater<pair<int, int>>> pq;
-    pq.push({0, startVertex}); // Помещаем стартовую вершину в очередь с расстоянием 0
-
-    while (!pq.empty()) {
-        int u = pq.top().second; // Извлекаем вершину с наименьшим расстоянием
-        pq.pop();
-
-        if (u == endVertex) {
-            break; // Если достигли конечной вершины, выходим из цикла
-        }
-
-        if (visited[u]) {
-            continue; // Пропускаем вершины, которые уже были посещены
-        }
-
-        visited[u] = true; // Помечаем текущую вершину как посещенную
-
-        // Обновляем расстояния до соседних вершин
-        for (int v = 0; v < numVertices; ++v) {
-            if (graph[u][v] != 0 && !visited[v]) {
-                int newDist = dist[u] + graph[u][v]; // Вычисляем новое расстояние до вершины v через текущую вершину u
-                if (newDist < dist[v]) { // Если новое расстояние меньше текущего кратчайшего расстояния до вершины v
-                    dist[v] = newDist; // Обновляем значение кратчайшего расстояния до вершины v
-                    path[v] = u; // Запоминаем вершину u в кратчайшем пути до вершины v
-                    pq.push({dist[v], v}); // Помещаем вершину v с обновленным расстоянием в приоритетную очередь
+                    pq.push({dist[v], v}); // Добавление вершины v с новым расстоянием в очередь
                 }
             }
         }
+        visited[u] = true; // Помечаем вершину как посещенную
     }
 }
 
-int main() {
-    cin.tie();
-    SetConsoleOutputCP(CP_UTF8);
-    SetConsoleCP(CP_UTF8);
+signed main() // Основная функция программы
+{
+    SetConsoleOutputCP(CP_UTF8); // Настройка кодировки консоли для вывода UTF-8
+    SetConsoleCP(CP_UTF8); // Настройка кодировки консоли для ввода UTF-8
 
-    // Ввод количества вершин графа
-    int numVertices;
-    cout << "Введите количество вершин: ";
-    cin >> numVertices;
+    optimus_prime; // Активация макроса для ускорения ввода/вывода
 
-    // Создание графа в виде матрицы смежности
-    vector<vector<int>> graph(numVertices, vector<int>(numVertices, 0));
+    ll size_dp; // Переменная для хранения размера матрицы
+    cout << "Введите размер матрицы: "; // Вывод сообщения пользователю
+    cin >> size_dp; // Считывание размера матрицы
 
-    // Ввод матрицы смежности графа
-    cout << "Введите матрицу смежности:\n";
-    for (int i = 0; i < numVertices; ++i) {
-        for (int j = 0; j < numVertices; ++j) {
-            cin >> graph[i][j];
-        }
+    vector<vector<ll>> dp(size_dp, vector<ll>(size_dp, 0)); // Создание матрицы dp
+    cout << "Заполните матрицу: " << endl; // Вывод сообщения пользователю
+    FOR(i, 0, size_dp) // Цикл для заполнения матрицы
+        FOR(j, 0, size_dp) cin >> dp[i][j]; // Считывание элементов матрицы
+
+    int startPoint, endPoint; // Переменные для начальной и конечной вершин
+    cout << "Введите начальную вершину: "; // Вывод сообщения пользователю
+    cin >> startPoint; // Считывание начальной вершины
+    cout << "Введите конечную вершину: "; // Вывод сообщения пользователю
+    cin >> endPoint; // Считывание конечной вершины
+
+    vector<ll> dist, path; // Векторы для расстояний и пути
+
+    dijkstra(dp, startPoint, endPoint, dist, path); // Вызов функции Dijkstra
+
+    cout << "Кратчайший путь: "; // Вывод сообщения
+    vector<ll> result; // Вектор для хранения кратчайшего пути
+    for(ll i = endPoint; i != -1; i = path[i]) // Цикл для восстановления пути
+    {
+        result.push_back(i); // Добавление вершины в путь
     }
-
-    // Ввод стартовой и конечной вершины
-    int startVertex, endVertex;
-    cout << "Введите стартовую вершину: ";
-    cin >> startVertex;
-    cout << "Введите конечную вершину: ";
-    cin >> endVertex;
-
-    vector<int> dist, path;
-    // Запуск алгоритма Дейкстры
-    dijkstra(graph, startVertex, endVertex, dist, path);
-    cout << endl;
-
-    // Вывод кратчайшего расстояния до конечной вершины
-    cout << "Кратчайшее расстояние = " << dist[endVertex] << "\n";
-
-    // Вывод кратчайшего пути
-    cout << "Кратчайший путь: ";
-    vector<int> shortestPath;
-    for (int v = endVertex; v != -1; v = path[v]) {
-        shortestPath.push_back(v);
+    for(ll i = result.size() - 1; i >= 0; i--) // Цикл для вывода пути в обратном порядке
+    {
+        cout << result[i] << " "; // Вывод вершины пути
     }
-    reverse(shortestPath.begin(), shortestPath.end()); // Разворачиваем путь, чтобы вывести в правильном порядке
-    for (int v : shortestPath) {
-        cout << v << " ";
-    }
-    cout << endl;
+    cout << "\n"; // Переход на новую строку
+    cout << "Длинна кратчайшего пути: " << dist[endPoint] << endl; // Вывод длины кратчайшего пути
 
-    return 0;
+    return 0; // Завершение программы с кодом возврата 0
 }

@@ -10,6 +10,7 @@
 #define p(a) push(a)
 #define sz size()
 #define ll long long
+#define ld long double
 #define F first
 #define S second
 
