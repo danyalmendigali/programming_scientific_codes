@@ -1,6 +1,5 @@
 #include <bits/stdc++.h>
 #include <windows.h>
-#include <iterator>
 using namespace std;
 
 #define ar array
