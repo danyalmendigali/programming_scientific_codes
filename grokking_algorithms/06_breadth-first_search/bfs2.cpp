@@ -18,8 +18,6 @@ void alghormBreadthFirstSearch(vector<vector<int>>& matrix, int startPoint)
     q.push(startPoint);
     visited[startPoint] = true;
 
-
-
     while(!q.empty())
     {
         int frontnumber = q.front();

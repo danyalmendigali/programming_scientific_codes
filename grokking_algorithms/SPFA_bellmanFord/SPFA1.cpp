@@ -18,7 +18,10 @@ const ll N = 1e9;
 const ll inf = 1e9 + 9;
 const ll mod = 1e9 + 7;
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 03bdd7d4fbb473b5126b0de653c6b14a55cb8216
 pair<vector<ll>, ll> spfa(ll size_dp, const vector<vector<ll>>& dp, ll startPoint, ll endPoint)
 {
     vll dist(size_dp, inf);
